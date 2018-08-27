@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/23 13:48:11 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/08/27 16:23:14 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _PUSH_SWAP_H
 # define _PUSH_SWAP_H
+
 #include "../libft/includes/libft.h"
 
 typedef struct		s_node
 {
+	struct s_node	*prev;
 	int				data;
 	struct s_node	*next;
-	struct s_node	*prev;
+	
 }					t_node;
 
 typedef struct		s_stack

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/23 18:02:37 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/08/27 16:23:14 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,17 @@ void	op_sa(t_stack *stack)
 		stack->a_head = temp;
 		//TODO : add to stack total
 		//TODO : print out
+		printf("sa"); //TEST
+	}
+}
+
+void	op_sb(t_stack *stack)
+{
+	t_node	*temp;
+
+	if (stack->a_head && stack->a_head->next)
+	{
+
+		printf("sb");
 	}
 }
