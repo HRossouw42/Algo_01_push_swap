@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/28 17:25:32 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/08/28 18:20:16 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	op_pa(t_stack *stack)
 		temp->next = stack->a_head;
 		stack->a_head = temp;
 		!((stack->a_head)->next) ? stack->a_tail = stack->a_head : 0;
-		printf("pa");
+		printf("pa"); //test
 		//TODO: keep track of stack size changes
 	}
 }
@@ -141,7 +141,7 @@ void	op_pb(t_stack *stack)
 		temp->next = stack->b_head;
 		stack->b_head = temp;
 		!((stack->b_head)->next) ? stack->b_tail = stack->b_head : 0;
-		printf("pb");
+		printf("pb"); //test
 		//TODO: keep track of stack size changes
 	}
 }
