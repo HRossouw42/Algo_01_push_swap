@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/27 16:23:14 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:27:07 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,13 @@
 
 #include "../libft/includes/libft.h"
 
-typedef struct		s_node
-{
-	struct s_node	*prev;
-	int				data;
-	struct s_node	*next;
-	
-}					t_node;
-
 typedef struct		s_stack
 {
 	t_node			*a_head;
 	t_node			*b_head;
 	t_node			*a_tail;
 	t_node			*b_tail;
+	int				index;
 }					t_stack;
 
 void				op_sa(t_stack *stack);

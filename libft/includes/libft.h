@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 10:08:21 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/14 17:51:41 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/08/31 11:22:55 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,30 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# define BUFF_SIZE 3
+# define BUFF_SIZE 1
 # define MAX_FD 1025
 # define MAX_BUF 10000000
 # define LINE '\n'
 
-typedef struct		s_list
+typedef struct			s_node
+{	
+	struct s_node		*next;
+	int					data;
+	struct s_node		*prev;
+}						t_node;
+
+typedef struct			s_list
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+	size_t				len;
+	struct s_list		*node;
+	struct s_list		*prev;
+	struct s_list		*data;
+	void				*content;
+	size_t				content_size;
+	struct s_list		*next;
+	t_node				*head;
+	t_node				*tail;
+}						t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
