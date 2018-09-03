@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/31 11:27:07 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 15:34:02 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ typedef struct		s_stack
 	int				index;
 }					t_stack;
 
-void				op_sa(t_stack *stack);
-void				op_sb(t_stack *stack);
-void				op_ss(t_stack *stack);
-void				op_pa(t_stack *stack);
-void				op_pb(t_stack *stack);
-void				op_ra(t_stack *stack);
-void				op_rb(t_stack *stack);
-void				op_rr(t_stack *stack);
-void				op_rra(t_stack *stack);
-void				op_rrb(t_stack *stack);
-void				op_rrr(t_stack *stack);
+void				is_list(t_list *list);
+void				swap(t_list *list);
+void				op_sa(t_list *lst);
+void				op_sb(t_list *lst);
+void				op_ss(t_list *la, t_list *lb);
+void				op_pa(t_list *la, t_list *lb);
+void				op_pb(t_list *la, t_list *lb);
+void				rotate(t_list *lst);
+void				op_ra(t_list *lst);
+void				op_rb(t_list *lst);
+void				op_rr(t_list *la, t_list *lb);
+void				op_rra(t_list *lst);
+void				op_rrb(t_list *lst);
+void				op_rrr(t_list *la, t_list *lb);
 # endif 

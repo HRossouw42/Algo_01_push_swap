@@ -6,72 +6,34 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 12:36:02 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/29 14:25:14 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 15:33:55 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	op_rra(t_stack *stack)
+void	reverse_rotate(t_list *lst)
 {
-	t_node	*temp;
-
-	if (stack->a_head && stack->a_head->next)
-	{
-		temp = stack->a_tail;
-		stack->a_tail = stack->a_tail->prev;
-		stack->a_tail->next = NULL;
-		temp->next = stack->a_head;
-		temp->prev = NULL;
-		stack->a_head->prev = temp;
-		stack->a_head = temp;
-		//increase stack size total
-		printf("rra");
-	}
+	ft_list_prepend(lst, lst->tail->data);
+	ft_list_del(lst, lst->tail);
 }
 
-void	op_rrb(t_stack *stack)
+void	op_rra(t_list *lst)
 {
-	t_node	*temp;
-
-	if (stack->b_head && stack->b_head->next)
-	{
-		temp = stack->b_tail;
-		stack->b_tail = stack->b_tail->prev;
-		stack->b_tail->next = NULL;
-		temp->next = stack->b_head;
-		temp->prev = NULL;
-		stack->b_head->prev = temp;
-		stack->b_head = temp;
-		//increase stack size total
-		printf("rrb");
-	}
+	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
+		reverse_rotate(lst);
 }
 
-void	op_rrr(t_stack *stack)
+void	op_rrb(t_list *lst)
 {
-	t_node	*temp;
+	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
+		reverse_rotate(lst);
+}
 
-	if (stack->a_head && stack->a_head->next)
-	{
-		temp = stack->a_tail;
-		stack->a_tail = stack->a_tail->prev;
-		stack->a_tail->next = NULL;
-		temp->next = stack->a_head;
-		temp->prev = NULL;
-		stack->a_head->prev = temp;
-		stack->a_head = temp;
-	}
-	if (stack->b_head && stack->b_head->next)
-	{
-		temp = stack->b_tail;
-		stack->b_tail = stack->b_tail->prev;
-		stack->b_tail->next = NULL;
-		temp->next = stack->b_head;
-		temp->prev = NULL;
-		stack->b_head->prev = temp;
-		stack->b_head = temp;
-	}
-	//increase stack size total
-	printf("rrr");
+void	op_rrr(t_list *l_a, t_list *l_b)
+{
+	if (l_a != NULL && l_a->head != NULL && l_a->head->next != NULL)
+		reverse_rotate(l_a);
+	if (l_b != NULL && l_b->head != NULL && l_b->head->next != NULL)
+		reverse_rotate(l_b);
 }

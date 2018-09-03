@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/28 18:20:16 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 15:25:44 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,131 +17,63 @@
 ** MAYBE: visualiser
 */ 
 
-void	op_sa(t_stack *stack)
+int		is_list(t_list *lst)
 {
-	t_node	*temp;
+	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
+		return (1);
+	return (0);
+}
 
-	if (stack->a_head && stack->a_head->next)
+void	swap(t_list *lst)
+{
+	t_node	*node;
+
+	node = lst->head;
+	lst->head = node->next;
+	lst->head->prev = NULL;
+	node->prev = lst->head;
+	node->next = lst->head->next;
+	lst->head->next = node;
+}
+
+void	op_sa(t_list *lst)
+{
+	if (is_list(lst))
 	{
-		temp = stack->a_head->next;
-		if (stack->a_head->next->next)
-			stack->a_head->next->next->prev = stack->a_head;
-		else
-			stack->a_head->next->next->prev = 0;
-		if (!(stack->a_head->next->next))
-			stack->a_tail = stack->a_head;
-		else
-			stack->a_tail = 0;
-		stack->a_head->next = stack->a_head->next->next;
-		stack->a_head->prev = temp;
-		temp->prev = NULL;
-		temp->next = stack->a_head;
-		stack->a_head = temp;
-		printf("sa"); //TEST
+		swap(lst);
 	}
 }
 
-void	op_sb(t_stack *stack)
+void	op_sb(t_list *lst)
 {
-	t_node	*temp;
-
-	if (stack->b_head && stack->b_head->next)
+	if (is_list(lst))
 	{
-		temp = stack->b_head->next;
-		if (stack->b_head->next->next)
-			stack->b_head->next->next->prev = stack->b_head;
-		else
-			stack->b_head->next->next->prev = 0;
-		if (!(stack->b_head->next->next))
-			stack->b_tail = stack->b_head;
-		else
-			stack->b_tail = 0;
-		stack->b_head->next = stack->b_head->next->next;
-		stack->b_head->prev = temp;
-		temp->prev = NULL;
-		temp->next = stack->b_head;
-		stack->b_head = temp;
-		printf("sb"); //TEST
+		swap(lst);
 	}
 }
 
-void	op_ss(t_stack *stack)
+void	op_ss(t_list *la, t_list *lb)
 {
-	t_node	*temp;
-	
-	if (stack->a_head && stack->a_head->next)
-	{
-		temp = stack->a_head->next;
-		if (stack->a_head->next->next)
-			stack->a_head->next->next->prev = stack->a_head;
-		else
-			stack->a_head->next->next->prev = 0;
-		if (!(stack->a_head->next->next))
-			stack->a_tail = stack->a_head;
-		else
-			stack->a_tail = 0;
-		stack->a_head->next = stack->a_head->next->next;
-		stack->a_head->prev = temp;
-		temp->prev = NULL;
-		temp->next = stack->a_head;
-		stack->a_head = temp;
-	}
-
-	temp = stack->b_head->next;
-	if (stack->b_head && stack->b_head->next)
-	{
-		temp = stack->b_head->next;
-		if (stack->b_head->next->next)
-			stack->b_head->next->next->prev = stack->b_head;
-		else
-			stack->b_head->next->next->prev = 0;
-		if (!(stack->b_head->next->next))
-			stack->b_tail = stack->b_head;
-		else
-			stack->b_tail = 0;
-		stack->b_head->next = stack->b_head->next->next;
-		stack->b_head->prev = temp;
-		temp->prev = NULL;
-		temp->next = stack->b_head;
-		stack->b_head = temp;
-	}
-	printf("ss"); //TEST
+	if (la != NULL && la->head != NULL && la->head->next != NULL)
+		sa(la);
+	if (lb != NULL && lb->head != NULL && lb->head->next != NULL)
+		sb(lb);
 }
 
-void	op_pa(t_stack *stack)
+void	op_pa(t_list *la, t_list *lb)
 {
-	t_node	*temp;
-
-	if (stack->b_head)
-	{
-		temp = stack->b_head;
-		stack->b_head = temp->next;
-		(stack->b_head) ? stack->b_head->prev = NULL : 0;
-		!(stack->b_head) ? stack->b_tail = NULL : 0;
-		(stack->a_head) ? stack->a_head->prev = temp : 0;
-		temp->next = stack->a_head;
-		stack->a_head = temp;
-		!((stack->a_head)->next) ? stack->a_tail = stack->a_head : 0;
-		printf("pa"); //test
-		//TODO: keep track of stack size changes
-	}
+	if (!(lb == NULL || lb->head == NULL))
+		{
+			ft_list_prepend(la, lb->head->data);
+			ft_list_del(lb, lb->head);
+		}
 }
 
-void	op_pb(t_stack *stack)
+void	op_pb(t_list *la, t_list *lb)
 {
-	t_node	*temp;
-
-	if (stack->a_head)
+	if (!(la == NULL || la->head == NULL))
 	{
-		temp = stack->a_head;
-		stack->a_head = temp->next;
-		(stack->a_head) ? stack->a_head->prev = NULL : 0;
-		!(stack->a_head) ? stack->a_tail = NULL : 0;
-		(stack->b_head) ? stack->b_head->prev = temp : 0;
-		temp->next = stack->b_head;
-		stack->b_head = temp;
-		!((stack->b_head)->next) ? stack->b_tail = stack->b_head : 0;
-		printf("pb"); //test
-		//TODO: keep track of stack size changes
+		ft_list_prepend(lb, la->head->data);
+		ft_list_del(la, la->head);
 	}
 }
