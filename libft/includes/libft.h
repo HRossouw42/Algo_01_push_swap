@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 10:08:21 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/08/31 11:22:55 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 12:27:36 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int					ft_amount_of_num(int num);
 int					ft_amount_of_words(char const *s, char c);
 size_t				ft_min(size_t a, size_t b);
 void				*ft_memrchrn(const void *s, int c, size_t n);
-t_list				*ft_lstnew(const void *content, size_t content_size);
 void				ft_lstadd(t_list **head, t_list *new);
 char				*ft_strndup(const char *s1, size_t n);
 char				*ft_strnjoin(const char *s1, const char *s2, size_t len);
@@ -110,4 +109,6 @@ void				ft_exit_error_malloc(void);
 void				ft_freezero(void *mem, size_t size);
 char				*ft_strmove(char *dest, char **src);
 size_t				ft_strlchr(char *str, char c);
+t_list				*ft_lstnew(const void *content, size_t content_size);
+t_list				*ft_lst_append(t_list *lst, int data);
 #endif

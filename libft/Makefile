@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hrossouw <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/29 11:05:19 by hrossouw          #+#    #+#              #
-#    Updated: 2018/08/13 15:04:00 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/03 12:29:40 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC =	ft_atoi.c \
 		ft_freezero.c \
 		ft_strmove.c \
 		ft_strlchr.c \
+		ft_lst_append.c \
 
 OBJ = $(SRC:.c=.o)
 

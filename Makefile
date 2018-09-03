@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hrossouw <hrossouw@student.42.fr>          +#+  +:+       +#+         #
+#    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/08/21 10:47:36 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/03 11:45:25 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
  CC = gcc
- CFLAGS = -Wall -Wextra -Werror -I includes
+ CFLAGS = -Wall -Wextra -Werror -I -g includes
  
  SRC_PATH = src/
  INC_PATH = includes/
