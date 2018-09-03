@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_lst_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/21 16:24:05 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 17:11:02 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/03 16:20:08 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/03 16:20:28 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "includes/libft.h"
 
-int	main(int argc, char **argv)
+t_list		*ft_lst_new(void)
 {
-	return (0);
+	t_list	*result;
+
+	result = (t_list *)malloc(sizeof(t_list));
+	if (result != NULL)
+	{
+		result->len = 0;
+		result->head = NULL;
+		result->tail = NULL;
+	}
+	return (result);
 }

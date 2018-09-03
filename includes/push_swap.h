@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 15:35:20 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 15:48:27 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,4 @@ void				op_rr(t_list *la, t_list *lb);
 void				op_rra(t_list *lst);
 void				op_rrb(t_list *lst);
 void				op_rrr(t_list *la, t_list *lb);
-# endif 
+# endif

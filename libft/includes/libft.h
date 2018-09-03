@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 10:08:21 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 12:55:44 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 17:07:53 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct			s_list
 	size_t				len;
 	struct s_list		*node;
 	struct s_list		*prev;
-	struct s_list		*data;
+	struct s_node		*data;
 	void				*content;
 	size_t				content_size;
 	struct s_list		*next;
@@ -110,7 +110,9 @@ void				ft_freezero(void *mem, size_t size);
 char				*ft_strmove(char *dest, char **src);
 size_t				ft_strlchr(char *str, char c);
 t_list				*ft_lstnew(const void *content, size_t content_size);
+t_list				*ft_lst_new(void);
 t_list				*ft_lst_append(t_list *lst, int data);
 t_list				*ft_lst_prefix(t_list *lst, int value);
 t_list				*ft_lst_del(t_list *lst, t_node *node);
+size_t				ft_lst_len(t_list *begin_list);
 #endif

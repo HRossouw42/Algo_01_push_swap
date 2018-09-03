@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_lst_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/21 16:24:05 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 17:11:02 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/03 16:50:43 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/03 17:08:28 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "includes/libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_lst_len(t_list *begin_list)
 {
-	return (0);
+	if (begin_list == NULL)
+		return (0);
+	return (ft_lst_len(begin_list->next) + 1);
 }
