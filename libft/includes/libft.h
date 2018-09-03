@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 10:08:21 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 12:27:36 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/03 12:55:44 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,6 @@ char				*ft_strmove(char *dest, char **src);
 size_t				ft_strlchr(char *str, char c);
 t_list				*ft_lstnew(const void *content, size_t content_size);
 t_list				*ft_lst_append(t_list *lst, int data);
+t_list				*ft_lst_prefix(t_list *lst, int value);
+t_list				*ft_lst_del(t_list *lst, t_node *node);
 #endif

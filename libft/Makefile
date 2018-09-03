@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/29 11:05:19 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/03 12:29:40 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/03 12:55:33 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,8 @@ SRC =	ft_atoi.c \
 		ft_strmove.c \
 		ft_strlchr.c \
 		ft_lst_append.c \
+		ft_lst_prefix.c \
+		ft_lst_del.c \
 
 OBJ = $(SRC:.c=.o)
 
