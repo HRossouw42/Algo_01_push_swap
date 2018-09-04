@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:02:13 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 11:05:56 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:35:36 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	lst_print(t_list *lst)
 		while(temp)
 		{
 			ft_putnbr(temp->data);
-			ft_putstr(" - ");
+			if (temp->next != NULL)
+				ft_putstr(" - ");
 			temp = temp ->next;
 		}
 	}
@@ -36,6 +37,7 @@ int		main(int argc, char **argv)
 
 	la = ft_lst_new();
 	lb = ft_lst_new();
+	argv++;
 	while (*argv)
 	{
 		la = ft_lst_append(la, ft_atoi(*argv));
