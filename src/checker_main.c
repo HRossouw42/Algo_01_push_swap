@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/29 15:02:13 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 12:03:30 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/04 13:27:00 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/04 13:56:12 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		main(int argc, char **argv)
 		la = ft_lst_append(la, ft_atoi(*argv));
 		argv++;
 	}
-	op_sa(la);
 	print_stacks(la, lb);
+	get_input(la, lb);
+	
 	return (0);
 }

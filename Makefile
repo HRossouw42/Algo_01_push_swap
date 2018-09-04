@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/04 11:58:58 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/04 13:47:17 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,12 @@ NAME = push_swap
  OBJ_PATH = obj/
  LIBFT_PATH = libft/
 
- SRC_NAME = main.c \
+ SRC_NAME = checker_main.c \
 			swap_ops.c \
 			reverse_ops.c \
 			rotate_ops.c \
 			visualiser.c \
+			get_input.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
