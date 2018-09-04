@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_ops.c                                       :+:      :+:    :+:   */
+/*   visualiser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/29 12:12:50 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 12:02:00 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/03 16:53:55 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/04 11:57:26 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_list *lst)
+void	lst_print(t_list *lst)
 {
-	ft_lst_append(lst, lst->head->data);
-	ft_lst_del(lst, lst->head);
+	t_node *temp;
+
+	if (lst != NULL)
+	{
+		temp = lst->head;
+		while(temp)
+		{
+			ft_putnbr(temp->data);
+			if (temp->next != NULL)
+				ft_putstr(" - ");
+			temp = temp ->next;
+		}
+	}
 }
 
-void	op_ra(t_list *lst)
+void	print_stacks(t_list *la, t_list *lb)
 {
-	rotate(lst);
-}
-
-void	op_rb(t_list *lst)
-{
-	rotate(lst);
-}
-
-void	op_rr(t_list *la, t_list *lb)
-{
-	rotate(la);
-	rotate(lb);
+	ft_putstr("Stack A: ");
+	lst_print(la);
+	ft_putstr("\nStack B: ");
+	lst_print(lb);
+	ft_putstr("\n");
 }

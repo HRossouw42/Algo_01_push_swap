@@ -6,29 +6,11 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:02:13 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 11:35:36 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/04 12:03:30 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	lst_print(t_list *lst)
-{
-	t_node *temp;
-
-	if (lst != NULL)
-	{
-		temp = lst->head;
-		while(temp)
-		{
-			ft_putnbr(temp->data);
-			if (temp->next != NULL)
-				ft_putstr(" - ");
-			temp = temp ->next;
-		}
-	}
-	ft_putchar('\n');
-}
 
 int		main(int argc, char **argv)
 {
@@ -43,6 +25,7 @@ int		main(int argc, char **argv)
 		la = ft_lst_append(la, ft_atoi(*argv));
 		argv++;
 	}
-	lst_print(la);
+	op_sa(la);
+	print_stacks(la, lb);
 	return (0);
 }

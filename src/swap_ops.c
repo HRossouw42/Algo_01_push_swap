@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 15:25:44 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/04 12:01:09 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ void	op_sb(t_list *lst)
 void	op_ss(t_list *la, t_list *lb)
 {
 	if (la != NULL && la->head != NULL && la->head->next != NULL)
-		sa(la);
+		op_sa(la);
 	if (lb != NULL && lb->head != NULL && lb->head->next != NULL)
-		sb(lb);
+		op_sb(lb);
 }
 
 void	op_pa(t_list *la, t_list *lb)
 {
 	if (!(lb == NULL || lb->head == NULL))
 		{
-			ft_list_prepend(la, lb->head->data);
-			ft_list_del(lb, lb->head);
+			ft_lst_prefix(la, lb->head->data);
+			ft_lst_del(lb, lb->head);
 		}
 }
 
@@ -73,7 +73,7 @@ void	op_pb(t_list *la, t_list *lb)
 {
 	if (!(la == NULL || la->head == NULL))
 	{
-		ft_list_prepend(lb, la->head->data);
-		ft_list_del(la, la->head);
+		ft_lst_prefix(lb, la->head->data);
+		ft_lst_del(la, la->head);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 12:36:02 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 15:33:55 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/04 12:07:38 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	reverse_rotate(t_list *lst)
 {
-	ft_list_prepend(lst, lst->tail->data);
-	ft_list_del(lst, lst->tail);
+	ft_lst_prefix(lst, lst->tail->data);
+	ft_lst_del(lst, lst->tail);
 }
 
 void	op_rra(t_list *lst)

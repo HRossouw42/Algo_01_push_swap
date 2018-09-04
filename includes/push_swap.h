@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 15:48:27 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/04 11:58:24 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_stack
 	int				index;
 }					t_stack;
 
-void				is_list(t_list *list);
+int					is_list(t_list *list);
 void				swap(t_list *list);
 void				op_sa(t_list *lst);
 void				op_sb(t_list *lst);
@@ -38,4 +38,5 @@ void				op_rr(t_list *la, t_list *lb);
 void				op_rra(t_list *lst);
 void				op_rrb(t_list *lst);
 void				op_rrr(t_list *la, t_list *lb);
+void				print_stacks(t_list *la, t_list *lb);
 # endif
