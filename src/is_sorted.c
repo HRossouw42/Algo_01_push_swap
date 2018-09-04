@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_main.c                                     :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 13:27:00 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 15:57:59 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/04 15:44:59 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/04 15:50:17 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		main(int argc, char **argv)
+int		is_sorted(t_list *la, t_list *lb)
 {
-	t_list	*la;
-	t_list	*lb;
+	t_node	*node;
 
-	la = ft_lst_new();
-	lb = ft_lst_new();
-	argv++;
-	while (*argv)
+	node = la->head;
+	if (la->head->data == la->tail->data)
+		if (lb->head == NULL)
+			return (1);
+	while (node->next != NULL)
 	{
-		la = ft_lst_append(la, ft_atoi(*argv));
-		argv++;
+		if (node->data > node->next->data)
+			return (0);
+		node = node->next;
 	}
-	print_stacks(la, lb); //remove later
-	get_input(la, lb);
-	if (is_sorted(la, lb))
-		ok();
+	if (lb->head != NULL)
+		return (0);
 	else
-		ko();
-	return (0);
+		return (1);
 }
