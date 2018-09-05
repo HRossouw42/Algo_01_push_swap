@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/04 15:50:45 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/05 15:06:53 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,10 @@ NAME = push_swap
 			visualiser.c \
 			get_input.c \
 			is_sorted.c \
+			algo_start.c \
+			print_swap_ops.c \
+			print_push_ops.c \
+			print_rotate_ops.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 15:51:15 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:06:37 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ int					is_sorted(t_list *la, t_list *lb);
 void				ok(void);
 void				error(void);
 void				ko(void);
+void				pr_sa(t_list *lst);
+void				pr_sb(t_list *lst);
+void				pr_ss(t_list *la, t_list *lb);
+void				pr_sa(t_list *lst);
+void				pr_pa(t_list *la, t_list *lb);
+void				pr_pb(t_list *la, t_list *lb);
+void				pr_ra(t_list *lst);
+void				pr_rb(t_list *lst);
+void				pr_rrr(t_list *la, t_list *lb);
+void				algo_start(int len, t_list *la, t_list *lb);
 # endif
