@@ -6,11 +6,27 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:44:59 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 15:50:17 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:50:10 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int		is_sorted_list(t_list *lst)
+{
+	t_node	*node;
+
+	node = lst->head;
+	if (lst->head->data == lst->tail->data)
+		return (1);
+	while (node->next != NULL)
+	{
+		if (node->data > node->next->data)
+			return (0);
+		node = node->next;
+	}
+	return (1);
+}
 
 int		is_sorted(t_list *la, t_list *lb)
 {

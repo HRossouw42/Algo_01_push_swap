@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 12:01:09 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/05 16:59:03 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		is_list(t_list *lst)
 void	swap(t_list *lst)
 {
 	t_node	*node;
+	t_node	*c_node;
 
 	node = lst->head;
 	lst->head = node->next;
@@ -34,6 +35,13 @@ void	swap(t_list *lst)
 	node->prev = lst->head;
 	node->next = lst->head->next;
 	lst->head->next = node;
+	c_node = lst->head;
+		while (c_node->next != NULL)
+		{
+			c_node = c_node->next;
+			if (c_node->next == NULL)
+				lst->tail = c_node;
+		}
 }
 
 void	op_sa(t_list *lst)

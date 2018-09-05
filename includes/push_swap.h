@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/05 15:06:37 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/05 15:51:47 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void				op_rrr(t_list *la, t_list *lb);
 void				print_stacks(t_list *la, t_list *lb);
 void				get_input(t_list *la, t_list *lb);
 int					is_sorted(t_list *la, t_list *lb);
+int					is_sorted_list(t_list *lst);
 void				ok(void);
 void				error(void);
 void				ko(void);
