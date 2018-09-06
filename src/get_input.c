@@ -55,7 +55,7 @@ void	read_input(const char *str, t_list *la, t_list *lb)
 	else if (ft_strcmp(str, "rrr") == 0)
 		op_rrr(la, lb);
 	else if (ft_strcmp(str, "print") == 0)
-		print_stacks(la, lb);
+		print_stacks(la, lb); //remove me someday!
 	else
 		error();
 }

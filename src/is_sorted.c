@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:44:59 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/05 15:50:10 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:43:23 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,18 @@ int		is_sorted(t_list *la, t_list *lb)
 		return (0);
 	else
 		return (1);
+}
+
+int		is_rev_list(t_list *la)
+{
+	t_node	*current;
+
+	current = la->head;
+	while (current->data > current->next->data)
+	{
+		current = current->next;
+		if (current == la->tail)
+			return (1);
+	}
+	return (0);
 }

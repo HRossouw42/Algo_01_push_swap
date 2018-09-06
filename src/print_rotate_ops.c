@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 14:48:56 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/05 14:59:35 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:26:52 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	pr_rb(t_list *lst)
 	ft_putstr("ra\n");
 }
 
-void	pr_rrr(t_list *la, t_list *lb)
+void	pr_rr(t_list *la, t_list *lb)
 {
 	op_rrr(la, lb);
-	ft_putstr("rrr\n");
+	ft_putstr("rr\n");
 }

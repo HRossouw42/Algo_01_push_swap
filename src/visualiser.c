@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:53:55 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 11:57:26 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:45:49 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	lst_print(t_list *lst)
 		temp = lst->head;
 		while(temp)
 		{
-			ft_putnbr(temp->data);
+			ft_putnbr_fd(temp->data, 2);
 			if (temp->next != NULL)
-				ft_putstr(" - ");
+				ft_putstr_fd(" - ", 2);
 			temp = temp ->next;
 		}
 	}
@@ -31,9 +31,9 @@ void	lst_print(t_list *lst)
 
 void	print_stacks(t_list *la, t_list *lb)
 {
-	ft_putstr("Stack A: ");
+	ft_putstr_fd("Stack A: ", 2);
 	lst_print(la);
-	ft_putstr("\nStack B: ");
+	ft_putstr_fd("\nStack B: ", 2);
 	lst_print(lb);
-	ft_putstr("\n");
+	ft_putstr_fd("\n", 2);
 }

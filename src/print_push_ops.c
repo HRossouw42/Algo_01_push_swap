@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 14:42:51 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/05 14:45:59 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/06 18:26:52 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,22 @@ void	pr_pb(t_list *la, t_list *lb)
 {
 	op_pb(la, lb);
 	ft_putstr("pb\n");
+}
+
+void	pr_rra(t_list *lst)
+{
+	op_rra(lst);
+	ft_putstr("rra\n");
+}
+
+void	pr_rrb(t_list *lst)
+{
+	op_rb(lst);
+	ft_putstr("rrb\n");
+}
+
+void	pr_rrr(t_list *la, t_list *lb)
+{
+	op_rrr(la, lb);
+	ft_putstr("rrr\n");
 }
