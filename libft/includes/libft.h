@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 10:08:21 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/03 17:07:53 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/07 11:56:40 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+char				ft_isspace(int i);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_get_next_line(int const fd, char **line);

@@ -3,7 +3,7 @@
 int		half_list(int len)
 {
 	int div;
-	
+
 	if ((len % 2 == 0) && len)
 		div = len / 2;
 	else
@@ -16,7 +16,7 @@ int		half_list(int len)
 
 void	algos_smallest_first(int len, t_list *la)
 {
-	t_node 	*node;
+	t_node	*node;
 	int		smallest;
 	int		half;
 	int		smallest_pos;
@@ -54,7 +54,7 @@ void	algos_smallest_first(int len, t_list *la)
 }
 
 void	is_max(t_list *lst)
-{	
+{
 	t_node	*max;
 
 	max = lst->head;

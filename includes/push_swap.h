@@ -6,14 +6,14 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/06 18:23:45 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/07 11:46:11 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _PUSH_SWAP_H
 # define _PUSH_SWAP_H
 
-#include "../libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct		s_stack
 {
@@ -69,4 +69,5 @@ void				algo_small(int len, t_list *la, t_list *lb);
 void				algo_medium(int len, t_list *la, t_list *lb);
 void				algo_rev(int len, t_list *list_a, t_list *list_b);
 int					half_list(int len);
-# endif
+void				error_checker(int argc, char **argv);
+#endif

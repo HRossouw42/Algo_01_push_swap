@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/06 18:31:05 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/07 11:52:24 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ NAME2 = checker
 			print_rotate_ops.c \
 			algo_len.c \
 			algo_tools.c \
+			error_check.c \
 
 SRC_NAME2 = checker_main.c \
 			swap_ops.c \
@@ -48,6 +49,7 @@ SRC_NAME2 = checker_main.c \
 			print_rotate_ops.c \
 			algo_len.c \
 			algo_tools.c \
+			error_check.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_NAME2 = $(SRC_NAME2:.c=.o)

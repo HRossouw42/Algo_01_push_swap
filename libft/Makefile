@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/29 11:05:19 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/03 17:06:15 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/07 11:57:40 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC =	ft_atoi.c \
 		ft_strdup.c \
 		ft_strndup.c \
 		ft_strequ.c \
-		ft_is{alpha,print,alnum,ascii,digit}.c \
+		ft_is{alpha,print,alnum,ascii,digit,space}.c \
 		ft_str{iter,iteri}.c \
 		ft_strjoin.c \
 		ft_strnjoin.c \
