@@ -3,55 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 17:40:53 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/06/04 17:55:22 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/07 17:23:28 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_splitstr(char **arr, const char *s, char a, size_t len)
+int		ft_strclen(char const *s, char c)
 {
-	size_t	count;
-	size_t	len_word;
-	size_t	i;
+	int		i;
 
-	count = 0;
 	i = 0;
-	while (count < len)
-	{
-		len_word = 0;
-		while (s[i] == a && s[i])
-			i++;
-		while (s[i] != a && s[i])
-		{
-			len_word++;
-			i++;
-		}
-		if ((arr[count] = ft_strsub(&s[i - len_word], 0, len_word)) == NULL)
-			return (0);
-		count++;
-	}
-	arr[count] = 0;
-	return (1);
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
 }
 
 char		**ft_strsplit(char const *s, char c)
 {
-	char	**arr;
-	int		len;
+	int		w_len;
+	int		w_count;
+	int		i;
+	char	**full;
 
+	i = 0;
 	if (!s)
 		return (NULL);
-	len = ft_amount_of_words(s, c);
-	arr = ((char **)ft_memalloc(sizeof(char*) * len + 1));
-	if (!arr)
+	w_count = ft_amount_of_words(s, c);
+	full = (char**)malloc(sizeof(char*) * (w_count + 1));
+	if (!full)
 		return (NULL);
-	if (ft_splitstr(arr, s, c, len))
-		return (arr);
-	else
-		ft_memdel((void **)arr);
-	return (arr);
+	while (*s == c)
+		s++;
+	while (*s)
+	{
+		w_len = ft_strclen(s, c);
+		full[i++] = ft_strsub(s, 0, w_len);
+		s += w_len;
+		while (*s && *s == c)
+			s++;
+	}
+	full[i] = NULL;
+	return (full);
 }

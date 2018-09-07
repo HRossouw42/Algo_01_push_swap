@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   get_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 12:04:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/07 17:30:18 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/07 13:55:25 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/07 17:28:10 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		main(int argc, char **argv)
+t_list		*get_args(int len, char **argv)
 {
-	t_list	*la;
-	t_list	*lb;
-	t_list	*largs;
+	t_list	*ret;
+	t_list	*temp;
+	char	**split;
+	int		i;
+	int		j;
 
-	error_checker(argc, largs);
-	largs = get_args(argc, argv);
-
-	la = ft_lst_new();
-	lb = ft_lst_new();
-	argv++;
-	while (*argv)
+	i = 0;
+	ret = ft_lst_new();
+	while (++i < len)
 	{
-		la = ft_lst_append(la, ft_atoi(*argv));
-		argv++;
+		j = -1;
+		split = ft_strsplit(argv[i], ' ');
+		while (split[++j] != NULL)
+		{
+			printf("Split [%d]%s \n", j, split[j]);
+			ret = ft_lst_append(ret, ft_atoi(split[j]));
+		}
+		ft_strdel(split);
 	}
-	if (is_sorted(la, lb))
-		return (0);
-	else
-		algo_start(argc, la, lb);
+	lst_print(ret);
+	return (ret);
 }
