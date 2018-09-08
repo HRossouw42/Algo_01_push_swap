@@ -18,17 +18,11 @@ int		main(int argc, char **argv)
 	t_list	*lb;
 	t_list	*largs;
 
-	error_checker(argc, largs);
-	largs = get_args(argc, argv);
+	//error_checker(argc, largs);
+	la = get_args(argc, argv);
 
-	la = ft_lst_new();
 	lb = ft_lst_new();
-	argv++;
-	while (*argv)
-	{
-		la = ft_lst_append(la, ft_atoi(*argv));
-		argv++;
-	}
+	// argv++;
 	if (is_sorted(la, lb))
 		return (0);
 	else
