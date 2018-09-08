@@ -33,6 +33,7 @@ t_list		*get_args(int len, char **argv)
 		}
 		ft_strdel(split);
 	}
-	lst_print(ret);
+	lst_print(ret); //to test with
+	ft_putchar('\n'); //to test
 	return (ret);
 }

@@ -18,9 +18,10 @@ int		main(int argc, char **argv)
 	t_list	*lb;
 	t_list	*largs;
 
-	//error_checker(argc, largs);
 	la = get_args(argc, argv);
-
+	//error_checker(argc, la);
+	if (has_duplicates(la))
+		error();
 	lb = ft_lst_new();
 	// argv++;
 	if (is_sorted(la, lb))

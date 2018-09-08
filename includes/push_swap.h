@@ -72,4 +72,5 @@ int					half_list(int len);
 void				error_checker(int argc, char **argv);
 void				lst_print(t_list *lst);
 t_list				*get_args(int len, char **argv);
+int					has_duplicates(t_list *lst);
 #endif

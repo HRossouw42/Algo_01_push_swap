@@ -12,6 +12,40 @@
 
 #include "../includes/push_swap.h"
 
+int			has_duplicates(t_list *lst)
+{
+	int			curr;
+	t_node		*node;
+
+	if (!lst)
+		return (0);
+	node = lst->head;
+	// while (node->next != NULL)
+	// {
+	// 	if (node->data > node->next->data)
+	// 		return (0);
+	// 	node = node->next;
+	// }
+	while (node)
+	{	
+		curr = node->data;
+		while (node->next)
+		{
+			printf("%d vs %d\n" ,curr, node->next->data);
+			if (curr == node->next->data)
+			{
+				
+				return (1);
+			}
+			curr = node->data;
+			node = node->next;
+		}
+		node = node->next;
+		
+	}
+	return (0);
+}
+
 int			is_not_digit(char *str)
 {
 	int i;
