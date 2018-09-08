@@ -16,19 +16,17 @@ int			has_duplicates(t_list *lst)
 {
 	int			curr;
 	t_node		*node;
+	t_node		*tmp;
 
 	if (!lst)
 		return (0);
 	node = lst->head;
-	// while (node->next != NULL)
-	// {
-	// 	if (node->data > node->next->data)
-	// 		return (0);
-	// 	node = node->next;
-	// }
-	while (node)
+	tmp = lst->head;
+	curr = node->data;
+	while (tmp)
 	{	
-		curr = node->data;
+		node = tmp;
+		curr = tmp->data;
 		while (node->next)
 		{
 			printf("%d vs %d\n" ,curr, node->next->data);
@@ -37,11 +35,10 @@ int			has_duplicates(t_list *lst)
 				
 				return (1);
 			}
-			curr = node->data;
+			
 			node = node->next;
 		}
-		node = node->next;
-		
+		tmp = tmp->next;
 	}
 	return (0);
 }
