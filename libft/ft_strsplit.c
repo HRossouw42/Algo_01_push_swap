@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 17:40:53 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/07 17:23:28 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 14:27:47 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strclen(char const *s, char c)
 {
 	int		i;
 
-	i = 0;
+	i = 1;
 	while (s[i] != c && s[i])
 		i++;
 	return (i);

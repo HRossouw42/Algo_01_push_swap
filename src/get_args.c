@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:55:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/07 17:28:10 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 12:15:21 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,20 @@ t_list		*get_args(int len, char **argv)
 	char	**split;
 	int		i;
 	int		j;
+	int k = 0;
 
 	i = 0;
 	ret = ft_lst_new();
 	while (++i < len)
 	{
+		//printf("i = %d\n", i);
 		j = -1;
 		split = ft_strsplit(argv[i], ' ');
+		while (split[k++])
+			printf("Split[k] [%d]%s \n", k, split[k]);
 		while (split[++j] != NULL)
 		{
-			printf("Split [%d]%s \n", j, split[j]);
+			printf("Split[j] [%d]%s \n", j, split[j]);
 			ret = ft_lst_append(ret, ft_atoi(split[j]));
 		}
 		ft_strdel(split);
