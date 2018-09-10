@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:44:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 16:59:05 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 17:04:49 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void		error_checker(int argc, char **argv, t_list *lst)
 	argv++;
 	while (*argv)
 	{
-		printf("%s", *argv);
 		if ((arg_is_int(*argv) == 0))
 			error();
 		if ((is_not_digit(*argv)) == 1)

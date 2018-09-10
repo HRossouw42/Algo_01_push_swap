@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:55:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 15:08:34 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 17:07:06 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ t_list		*get_args(int len, char **argv)
 			ret = ft_lst_append(ret, ft_atoi(split[j]));
 		ft_strdel(split);
 	}
-	lst_print(ret); //to test with
-	ft_putchar('\n'); //to test
 	return (ret);
 }

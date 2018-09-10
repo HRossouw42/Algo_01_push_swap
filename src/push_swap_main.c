@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 12:04:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 16:33:50 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 17:07:59 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int		main(int argc, char **argv)
 	t_list	*largs;
 
 	la = get_args(argc, argv);
-	error_checker(argc, argv, la); //TODO check for digits
-	// if (has_duplicates(la))
-	// 	error();
+	lst_print(la); //to test with
+	ft_putchar_fd('\n', 2); //to test
+	error_checker(argc, argv, la);
 	lb = ft_lst_new();
-	// argv++;
-	// if (is_sorted(la, lb))
-	// 	return (0);
-	// else
-	// 	algo_start(argc, la, lb);
+	if (is_sorted(la, lb))
+		return (0);
+	else
+		algo_start(argc, la, lb);
+	lst_print(la); //to test with
+	ft_putchar_fd('\n', 2); //to test
 }
