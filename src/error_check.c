@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:44:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/07 11:55:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 16:59:05 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ int			has_duplicates(t_list *lst)
 		curr = tmp->data;
 		while (node->next)
 		{
-			printf("%d vs %d\n" ,curr, node->next->data);
+			//printf("%d vs %d\n" ,curr, node->next->data);
 			if (curr == node->next->data)
 			{
-				
 				return (1);
 			}
-			
 			node = node->next;
 		}
 		tmp = tmp->next;
@@ -60,38 +58,27 @@ int			is_not_digit(char *str)
 	return (0);
 }
 
-int			dup_check(int argc, char **argv)
+static int		arg_is_int(char *arg)
 {
-	int i;
-	int j;
-	int tmp;
+	long		result;
 
-	i = 1;
-	while (i < argc)
-	{
-		tmp = ft_atoi(argv[i]);
-		j = i;
-		while (j < argc - 1)
-		{
-			if (tmp == ft_atoi(argv[j + 1]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	result = ft_atol(arg);
+	if (result > 2147483647 || result < -2147483648)
+		return (0);
+	return (1);
 }
 
-void		error_checker(int argc, char **argv)
+void		error_checker(int argc, char **argv, t_list *lst)
 {
 	if (argc <= 1)
 		exit(1);
-	if (dup_check(argc, argv) == 1)
+	if (has_duplicates(lst))
 		error();
 	argv++;
 	while (*argv)
 	{
-		if (ft_atoi(*argv) > 2147483647)
+		printf("%s", *argv);
+		if ((arg_is_int(*argv) == 0))
 			error();
 		if ((is_not_digit(*argv)) == 1)
 			error();

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 12:04:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 11:45:12 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 16:33:50 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	t_list	*largs;
 
 	la = get_args(argc, argv);
-	// error_checker(argc, la); //TODO check for digits
+	error_checker(argc, argv, la); //TODO check for digits
 	// if (has_duplicates(la))
 	// 	error();
 	lb = ft_lst_new();

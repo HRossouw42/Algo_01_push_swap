@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/29 11:05:19 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/07 11:57:40 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/10 16:49:46 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I includes
 SRC =	ft_atoi.c \
+		ft_atol.c \
 		ft_bzero.c \
 		ft_mem{alloc,ccpy,chr,cmp,cpy,del,move,set}.c \
 		ft_strcat.c \

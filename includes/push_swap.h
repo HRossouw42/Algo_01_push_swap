@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/07 14:20:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/10 16:33:45 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void				algo_small(int len, t_list *la, t_list *lb);
 void				algo_medium(int len, t_list *la, t_list *lb);
 void				algo_rev(int len, t_list *list_a, t_list *list_b);
 int					half_list(int len);
-void				error_checker(int argc, char **argv);
+void				error_checker(int argc, char **argv, t_list *lst);
 void				lst_print(t_list *lst);
 t_list				*get_args(int len, char **argv);
 int					has_duplicates(t_list *lst);
