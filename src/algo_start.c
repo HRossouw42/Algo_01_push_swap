@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 12:10:06 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/06 17:45:04 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:53:42 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ void	algo_reverse(int len, t_list *list_a, t_list *list_b)
 	}
 }
 
-void	algo_start(int len, t_list *la, t_list *lb)
+void	algo_start(t_list *la, t_list *lb)
 {
-	len = len - 1;
+	int len;
+
+	len = find_list_length(la);
 	if ((is_rev_list(la) == 1) && len > 2)
 		algo_reverse(len, la, lb);
 	else if (len == 2)

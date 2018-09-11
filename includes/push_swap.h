@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 16:33:45 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:51:59 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void				pr_rrr(t_list *la, t_list *lb);
 void				pr_rra(t_list *lst);
 void				pr_rrb(t_list *lst);
 void				pr_rrr(t_list *la, t_list *lb);
-void				algo_start(int len, t_list *la, t_list *lb);
+void				algo_start(t_list *la, t_list *lb);
 void				algos_len2(t_list *list_a);
 void				algos_len3(t_list *list_a, t_list *list_b);
 void				algos_len4(int len, t_list *list_a, t_list *list_b);
@@ -73,4 +73,5 @@ void				error_checker(int argc, char **argv, t_list *lst);
 void				lst_print(t_list *lst);
 t_list				*get_args(int len, char **argv);
 int					has_duplicates(t_list *lst);
+int					find_list_length(t_list *list);
 #endif

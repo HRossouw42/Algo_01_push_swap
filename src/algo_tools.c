@@ -1,5 +1,20 @@
 #include "../includes/push_swap.h"
 
+int			find_list_length(t_list *list)
+{
+	t_node	*node;
+	int		list_len;
+
+	node = list->head;
+	list_len = 0;
+	while (node != NULL)
+	{
+		list_len++;
+		node = node->next;
+	}
+	return (list_len);
+}
+
 int		half_list(int len)
 {
 	int div;
