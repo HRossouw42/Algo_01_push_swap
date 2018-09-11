@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/11 12:34:01 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/11 15:57:08 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ NAME2 = checker
 			algo_tools.c \
 			error_check.c \
 			get_args.c \
+			list_tools.c \
 
 SRC_NAME2 = checker_main.c \
 			swap_ops.c \
