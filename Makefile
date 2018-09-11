@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/07 14:20:23 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/11 12:34:01 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 NAME2 = checker
 
  CC = gcc
- CFLAGS = -Wall -Wextra -Werror -I -g includes
+ CFLAGS = -Wall -Wextra -Werror -I -g
  
  SRC_PATH = src/
  INC_PATH = includes/
@@ -61,11 +61,19 @@ OBJ2 = $(addprefix $(OBJ_PATH),$(OBJ_NAME2))
 INC = $(addprefix -I,$(INC_PATH))
 INC_LIBFT = $(addprefix -I, $(addprefix $(LIBFT_PATH), $(INC_PATH)))
 
-all: $(PLAYER_PATH)$(NAME)
+all: $(NAME) $(NAME2)
 
-$(PLAYER_PATH)$(NAME): $(OBJ)
+$(NAME): $(OBJ)
 	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) -L$(LIBFT_PATH) -lft
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(INC) $(INC_LIBFT) -o $@ -c $<
+
+$(NAME2): $(OBJ2)
+	make -C $(LIBFT_PATH)
+	$(CC) $(CFLAGS) -o $@ $(OBJ2) -L$(LIBFT_PATH) -lft
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
