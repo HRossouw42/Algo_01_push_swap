@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 15:52:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 18:01:24 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 18:09:00 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int			get_last(t_list *lst)
 void	move_lst_ba(t_list *la, t_list *lb)
 {
 	t_node *tmp;
-	int i = 0;
 
 	tmp = lb->head;
 	if (tmp) 
