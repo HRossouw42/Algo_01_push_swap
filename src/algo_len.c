@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:44:57 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 14:26:48 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 17:39:31 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,41 +108,43 @@ void	algo_large(t_list *la, t_list *lb)
 {
 	int		store;
 
-	while (!is_sorted_list(la) || ft_lst_len(lb) != 0)
+	while (!(is_sorted_list(la)) || ft_lst_len(lb) != 0)
 	{
+		lst_print(la); //to test with
+		lst_print(lb); //to test with
 		if (get_first(la) > get_second(la))
 		{
 			ft_putstr_fd("first(la)>second(la)\n", 2);
 			pr_sa(la);
 		}
-		// else if (get_first(la) > get_last(la))
-		// 	{
-		// 		ft_putstr_fd("first(la)>last(la)\n", 2);
-		// 		pr_rra(la);
-		// 	}
-		// else if (get_first(la) < get_last(lb))
-		// 	{
-		// 		ft_putstr_fd("first(la)<last(lb)\n", 2);
-		// 		pr_pb(la, lb);
-		// 	}
-		// else if (get_first(la) < get_first(lb))
-		// {
-		// 	ft_putstr_fd("first(la)<first(lb)\n", 2);
-		// 	store = get_first(la);
-		// 	pr_ra(la);
-		// 	while (get_first(lb) > store)
-		// 		pr_pa(la, lb);
-		// 	pr_rra(la);
-		// }
+		else if (get_first(la) > get_last(la))
+		{
+			ft_putstr_fd("first(la)>last(la)\n", 2);
+			pr_rra(la);
+		}
+		else if (get_first(la) < get_last(lb))
+		{
+			ft_putstr_fd("first(la)<last(lb)\n", 2);
+			pr_pb(la, lb);
+		}
+		else if (get_first(la) < get_first(lb))
+		{
+			ft_putstr_fd("first(la)<first(lb)\n", 2);
+			store = get_first(la);
+			pr_ra(la);
+			while (get_first(lb) > store)
+				pr_pa(la, lb);
+			pr_rra(la);
+		}
 		else if (is_sorted_list(la) && get_first(la) > get_first(lb))
-			{
-				ft_putstr_fd("la sorted, first(la) > first(lb)\n", 2);
-				move_lst_ba(la, lb);
-			}
+		{
+			ft_putstr_fd("la sorted, first(la) > first(lb)\n", 2);
+			move_lst_ba(la, lb);
+		}
 		else
-			{
-				ft_putstr_fd("else\n", 2);
-				pr_pb(la, lb);
-			}
+		{
+			ft_putstr_fd("else\n", 2);
+			pr_pb(la, lb);
+		}
 	}
 }

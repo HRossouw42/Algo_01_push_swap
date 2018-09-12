@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 15:52:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 12:40:59 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 18:01:24 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ int			get_first(t_list *lst)
 
 	ret = 0;
 	tmp = lst->head;
-	if (lst)
+	if (tmp)
 		ret = tmp->data;
-	// printf("got first= %d\n", ret);
 	return (ret);
 }
 
@@ -32,14 +31,13 @@ int			get_second(t_list *lst)
 
 	ret = 0;
 	tmp = lst->head;
-	if (lst)
+	if (tmp)
 	{
-		if (tmp->next)
+		if (tmp->next != NULL)
 		{
 			ret = tmp->next->data;
 		}
 	}
-	// printf("got second= %d\n", ret);
 	return (ret);
 }
 
@@ -50,18 +48,27 @@ int			get_last(t_list *lst)
 
 	ret = 0;
 	tmp = lst->head;
-	if (lst)
+	if (tmp)
 	{
-		while (tmp->next)
+		while (tmp->next != NULL)
 			tmp = tmp->next;
 		ret = tmp->data;
 	}
-	// printf("got last= %d\n", ret);
 	return (ret);
 }
 
 void	move_lst_ba(t_list *la, t_list *lb)
 {
-	while (lb)
-		pr_pa(la, lb);
+	t_node *tmp;
+	int i = 0;
+
+	tmp = lb->head;
+	if (tmp) 
+	{
+		while(tmp)
+		{
+			pr_pa(la, lb);
+			tmp = tmp->next;
+		}
+	}
 }

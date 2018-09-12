@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:53:55 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/06 18:45:49 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 17:36:47 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	lst_print(t_list *lst)
 				ft_putstr_fd(" - ", 2);
 			temp = temp ->next;
 		}
+		ft_putchar_fd('\n', 2);
 	}
 }
 
