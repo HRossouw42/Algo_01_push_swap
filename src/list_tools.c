@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 15:52:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/11 16:22:04 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:40:59 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			get_first(t_list *lst)
 	tmp = lst->head;
 	if (lst)
 		ret = tmp->data;
-	printf("got first= %d\n", ret);
+	// printf("got first= %d\n", ret);
 	return (ret);
 }
 
@@ -39,7 +39,7 @@ int			get_second(t_list *lst)
 			ret = tmp->next->data;
 		}
 	}
-	printf("got second= %d\n", ret);
+	// printf("got second= %d\n", ret);
 	return (ret);
 }
 
@@ -56,6 +56,12 @@ int			get_last(t_list *lst)
 			tmp = tmp->next;
 		ret = tmp->data;
 	}
-	printf("got last= %d\n", ret);
+	// printf("got last= %d\n", ret);
 	return (ret);
+}
+
+void	move_lst_ba(t_list *la, t_list *lb)
+{
+	while (lb)
+		pr_pa(la, lb);
 }

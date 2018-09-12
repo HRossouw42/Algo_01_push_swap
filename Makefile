@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/11 15:57:08 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/12 12:47:16 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRC_NAME2 = checker_main.c \
 			algo_tools.c \
 			error_check.c \
 			get_args.c \
+			list_tools.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_NAME2 = $(SRC_NAME2:.c=.o)

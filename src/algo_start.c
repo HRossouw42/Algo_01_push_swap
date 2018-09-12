@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 12:10:06 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/11 12:53:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:35:35 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ void	algo_start(t_list *la, t_list *lb)
 	len = find_list_length(la);
 	if ((is_rev_list(la) == 1) && len > 2)
 		algo_reverse(len, la, lb);
-	else if (len == 2)
-		algos_len2(la);
-	else if (len == 3)
-		algos_len3(la, lb);
-	else if (len == 4)
-		algos_len4(len, la, lb);
-	else if (len <= 10)
-		algo_small(len, la, lb);
-	else if (len <= 500)
-		algo_medium(len, la, lb);
+	// else if (len == 2)
+	// 	algos_len2(la);
+	// else if (len == 3)
+	// 	algos_len3(la, lb);
+	// else if (len == 4)
+	// 	algos_len4(len, la, lb);
+	// else if (len <= 10)
+	// 	algo_small(len, la, lb);
+	// else if (len <= 500)
+	// 	algo_medium(len, la, lb);
+	else
+		algo_large(la, lb);
 }

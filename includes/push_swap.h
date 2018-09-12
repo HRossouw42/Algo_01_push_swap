@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/11 15:56:15 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:43:48 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void				is_max(t_list *lst);
 
 void				algo_small(int len, t_list *la, t_list *lb);
 void				algo_medium(int len, t_list *la, t_list *lb);
+void				algo_large(t_list *la, t_list *lb);
 void				algo_rev(int len, t_list *list_a, t_list *list_b);
 
 int					half_list(int len);
@@ -92,4 +93,5 @@ int					find_list_length(t_list *list);
 int					get_first(t_list *lst);
 int					get_second(t_list *lst);
 int					get_last(t_list *lst);
+void				move_lst_ba(t_list *la, t_list *lb);
 #endif
