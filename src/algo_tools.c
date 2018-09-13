@@ -60,11 +60,10 @@ void	algos_smallest_first(int len, t_list *la)
 			pr_rra(la);
 			pr_rra(la);
 		}
-		else
-			if (smallest_pos > half)
+		else if (smallest_pos > half)
 				pr_rra(la);
-			else if (smallest_pos <= half)
-				pr_ra(la);
+		else if (smallest_pos <= half)
+			pr_ra(la);
 	}
 }
 

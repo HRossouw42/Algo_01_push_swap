@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 15:52:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 18:09:00 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:01:26 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	move_lst_ba(t_list *la, t_list *lb)
 	t_node *tmp;
 
 	tmp = lb->head;
-	if (tmp) 
+	if (tmp)
 	{
-		while(tmp)
+		while (tmp)
 		{
 			pr_pa(la, lb);
 			tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:44:57 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 18:39:25 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:57:26 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	algos_len3(t_list *list_a, t_list *list_b)
 	{
 		pr_rra(list_a);
 		if (is_sorted_list(list_a) == 0)
-			pr_sa(list_a);	
+			pr_sa(list_a);
 	}
 	else if (list_a->head->data > list_a->head->next->data)
 	{
@@ -87,7 +87,7 @@ void		algo_medium(int len, t_list *la, t_list *lb)
 		if (la->head->data < la->head->next->data)
 			pr_pb(la, lb);
 		else
-		{	
+		{
 			algos_smallest_first(len, la);
 			pr_pb(la, lb);
 			if (la->head->data > la->head->next->data)
@@ -111,17 +111,11 @@ void	algo_large(t_list *la, t_list *lb)
 	while (!(is_sorted_list(la)) || ft_lst_len(lb) != 0)
 	{
 		if (get_first(la) > get_second(la))
-		{
 			pr_sa(la);
-		}
 		else if (get_first(la) > get_last(la))
-		{
 			pr_rra(la);
-		}
 		else if (get_first(la) < get_last(lb))
-		{
 			pr_pb(la, lb);
-		}
 		else if (get_first(la) < get_first(lb))
 		{
 			store = get_first(la);
@@ -130,13 +124,10 @@ void	algo_large(t_list *la, t_list *lb)
 				pr_pa(la, lb);
 			pr_rra(la);
 		}
-		else if (is_sorted_list(la) && get_first(la) > get_first(lb) && get_first(lb) != 0)
-		{
+		else if (is_sorted_list(la) &&
+		get_first(la) > get_first(lb) && get_first(lb) != 0)
 			move_lst_ba(la, lb);
-		}
 		else
-		{
 			pr_pb(la, lb);
-		}
 	}
 }

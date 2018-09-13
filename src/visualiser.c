@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:53:55 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 17:36:47 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:04:16 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	lst_print(t_list *lst)
 	if (lst != NULL)
 	{
 		temp = lst->head;
-		while(temp)
+		while (temp)
 		{
 			ft_putnbr_fd(temp->data, 2);
 			if (temp->next != NULL)
 				ft_putstr_fd(" - ", 2);
-			temp = temp ->next;
+			temp = temp->next;
 		}
 		ft_putchar_fd('\n', 2);
 	}

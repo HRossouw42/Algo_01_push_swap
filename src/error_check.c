@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:44:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 17:04:49 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:59:50 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,13 @@ int			has_duplicates(t_list *lst)
 	tmp = lst->head;
 	curr = node->data;
 	while (tmp)
-	{	
+	{
 		node = tmp;
 		curr = tmp->data;
 		while (node->next)
 		{
-			//printf("%d vs %d\n" ,curr, node->next->data);
 			if (curr == node->next->data)
-			{
 				return (1);
-			}
 			node = node->next;
 		}
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 13:31:15 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/04 15:57:30 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:00:47 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	read_input(const char *str, t_list *la, t_list *lb)
 		op_rrb(lb);
 	else if (ft_strcmp(str, "rrr") == 0)
 		op_rrr(la, lb);
-	else if (ft_strcmp(str, "print") == 0)
-		print_stacks(la, lb); //remove me someday!
 	else
 		error();
 }
@@ -63,6 +61,7 @@ void	read_input(const char *str, t_list *la, t_list *lb)
 void	get_input(t_list *la, t_list *lb)
 {
 	char *str;
+
 	while (ft_get_next_line(0, &str))
 		read_input(str, la, lb);
 }

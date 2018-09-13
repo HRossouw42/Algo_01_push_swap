@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 14:42:51 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 14:39:09 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:01:40 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pr_pa(t_list *la, t_list *lb)
 {
 	op_pa(la, lb);
-	ft_putstr("pa\n");	
+	ft_putstr("pa\n");
 }
 
 void	pr_pb(t_list *la, t_list *lb)

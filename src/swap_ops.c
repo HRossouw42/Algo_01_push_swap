@@ -6,16 +6,11 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/05 16:59:03 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/13 16:03:50 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/* 
-** TODO: add to stack total && print out without printf
-** MAYBE: visualiser
-*/ 
 
 int		is_list(t_list *lst)
 {
@@ -36,12 +31,12 @@ void	swap(t_list *lst)
 	node->next = lst->head->next;
 	lst->head->next = node;
 	c_node = lst->head;
-		while (c_node->next != NULL)
-		{
-			c_node = c_node->next;
-			if (c_node->next == NULL)
-				lst->tail = c_node;
-		}
+	while (c_node->next != NULL)
+	{
+		c_node = c_node->next;
+		if (c_node->next == NULL)
+			lst->tail = c_node;
+	}
 }
 
 void	op_sa(t_list *lst)
@@ -71,10 +66,10 @@ void	op_ss(t_list *la, t_list *lb)
 void	op_pa(t_list *la, t_list *lb)
 {
 	if (!(lb == NULL || lb->head == NULL))
-		{
-			ft_lst_prefix(la, lb->head->data);
-			ft_lst_del(lb, lb->head);
-		}
+	{
+		ft_lst_prefix(la, lb->head->data);
+		ft_lst_del(lb, lb->head);
+	}
 }
 
 void	op_pb(t_list *la, t_list *lb)
