@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+         #
+#    By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/12 12:47:16 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/17 16:21:12 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ NAME2 = checker
 			error_check.c \
 			get_args.c \
 			list_tools.c \
+			algo_tools_2.c \
 
 SRC_NAME2 = checker_main.c \
 			swap_ops.c \
@@ -54,6 +55,7 @@ SRC_NAME2 = checker_main.c \
 			error_check.c \
 			get_args.c \
 			list_tools.c \
+			algo_tools_2.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_NAME2 = $(SRC_NAME2:.c=.o)

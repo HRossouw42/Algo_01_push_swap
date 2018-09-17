@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:08:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 14:47:27 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:42:43 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	algo_start(t_list *la, t_list *lb)
 		algos_len4(len, la, lb);
 	else if (len <= 10)
 		algo_small(len, la, lb);
-	else if (len <= 100)
+	else if (len <= 101)
 		algo_medium(len, la, lb);
 	else
 		algo_large(la, lb);

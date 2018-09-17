@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 14:46:37 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 16:25:55 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void				algos_len4(int len, t_list *list_a, t_list *list_b);
 void				is_max(t_list *lst);
 void				algos_smallest_first(int len, t_list *la);
 void				is_max(t_list *lst);
+int					is_minimum(t_list *lst);
 
 void				algo_small(int len, t_list *la, t_list *lb);
 void				algo_medium(int len, t_list *la, t_list *lb);
@@ -115,5 +116,8 @@ int					find_list_length(t_list *list);
 int					get_first(t_list *lst);
 int					get_second(t_list *lst);
 int					get_last(t_list *lst);
+int					is_smallest_pos(t_list *lst);
+
 void				move_lst_ba(t_list *la, t_list *lb);
+void				move_up_a(int smallest, int len, int pos, t_list *la);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:07:51 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 14:57:47 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 15:37:55 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,27 +84,23 @@ void	algo_small(int len, t_list *la, t_list *lb)
 
 void	algo_medium(int len, t_list *la, t_list *lb)
 {
-	int len2;
+	int		len2;
 
 	len2 = 0;
 	while (len > 3)
 	{
-		if (la->head->data < la->head->next->data)
-			pr_pb(la, lb);
-		else
-		{
-			algos_smallest_first(len, la);
-			pr_pb(la, lb);
-			if (la->head->data > la->head->next->data)
-				pr_sa(la);
-		}
+		algos_smallest_first(len, la);
+		pr_pb(la, lb);
+		if (is_sorted_list(la))
+			break ;
 		len--;
 		len2++;
 	}
 	algos_len3(la);
 	while (len2 != 0)
 	{
-		pr_pa(la, lb);
+		while (lb->head != NULL)
+			pr_pa(la, lb);
 		len2--;
 	}
 }
