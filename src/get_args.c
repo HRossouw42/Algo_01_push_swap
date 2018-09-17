@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:11:22 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:14:11 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:35:34 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_list		*get_args(int len, char **argv)
 
 	i = 0;
 	ret = ft_lst_new();
-
 	while (++i < len)
 	{
 		j = -1;

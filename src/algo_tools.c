@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:08:49 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:14:37 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:27:45 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int			find_list_length(t_list *list)
 
 int			half_list(int len)
 {
-	int div;
+	int		div;
 
-	if ((len % 2 == 0) && len)
+	if ((len % 2 == 0) && len != 0)
 		div = len / 2;
 	else
 	{
-		len = len - 1;
+		len = len + 1;
 		div = len / 2;
 	}
 	return (div);

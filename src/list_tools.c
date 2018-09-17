@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 15:52:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:12:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:34:44 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			get_last(t_list *lst)
 	return (ret);
 }
 
-void	move_lst_ba(t_list *la, t_list *lb)
+void		move_lst_ba(t_list *la, t_list *lb)
 {
 	t_node *tmp;
 
