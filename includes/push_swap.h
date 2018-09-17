@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 16:25:55 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:35:45 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,7 @@ int					is_smallest_pos(t_list *lst);
 
 void				move_lst_ba(t_list *la, t_list *lb);
 void				move_up_a(int smallest, int len, int pos, t_list *la);
+
+void				destroy_stack(t_list **stack);
+void				free_lst(t_list *list);
 #endif
