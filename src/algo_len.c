@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:07:51 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:08:10 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:57:47 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,36 @@
 
 void	algos_len2(t_list *list_a)
 {
-	if (list_a->head->data > list_a->head->next->data)
-		pr_sa(list_a);
-}
-
-void	algos_len3(t_list *list_a, t_list *list_b)
-{
-	if (list_a->head->data < list_a->head->next->data)
+	while (list_a != NULL)
 	{
-		pr_rra(list_a);
-		if (is_sorted_list(list_a) == 0)
+		if (is_sorted_list(list_a))
+			break ;
+		else if (get_first(list_a) > get_last(list_a))
 			pr_sa(list_a);
 	}
-	else if (list_a->head->data > list_a->head->next->data)
+}
+
+void	algos_len3(t_list *la)
+{
+	while (la != NULL)
 	{
-		if (list_a->head->data > list_a->tail->data)
+		if (is_sorted_list(la))
+			break ;
+		else if (HEADA < NEXTA)
 		{
-			pr_ra(list_a);
-			if (is_sorted_list(list_a) == 0)
-				pr_sa(list_a);
+			pr_rra(la);
+			if (is_sorted_list(la) == 0)
+				pr_sa(la);
+		}
+		else if (HEADA > NEXTA)
+		{
+			if (HEADA > TAILA)
+				pr_ra(la);
+			if (is_sorted_list(la) == 0)
+				pr_sa(la);
 		}
 		else
-			pr_sa(list_a);
+			pr_sa(la);
 	}
 }
 
@@ -50,10 +58,7 @@ void	algos_len4(int len, t_list *list_a, t_list *list_b)
 	}
 	else
 	{
-		algos_smallest_first(len, list_a);
-		pr_pb(list_a, list_b);
-		algos_len3(list_a, list_b);
-		pr_pa(list_a, list_b);
+		algo_small(len, list_a, list_b);
 	}
 }
 
@@ -69,7 +74,7 @@ void	algo_small(int len, t_list *la, t_list *lb)
 		len--;
 		len2++;
 	}
-	algos_len3(la, lb);
+	algos_len3(la);
 	while (len2 != 0)
 	{
 		pr_pa(la, lb);
@@ -96,7 +101,7 @@ void	algo_medium(int len, t_list *la, t_list *lb)
 		len--;
 		len2++;
 	}
-	algos_len3(la, lb);
+	algos_len3(la);
 	while (len2 != 0)
 	{
 		pr_pa(la, lb);

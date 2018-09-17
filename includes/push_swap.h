@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 12:43:48 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 14:46:37 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,28 @@
 # define _PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
+
+# define FREEDOM	(free3(la), free3(lb);)
+# define HEADA		la->head->data
+# define NEXTA		la->head->next->data
+# define NEXEXTA	la->head->next->next->data
+# define TAILA		la->tail->data
+# define PREVA		la->tail->prev->data
+# define PREVEVA	la->tail->prev->prev->data
+
+# define HEAD		lst->head->data
+# define NEXT		lst->head->next->data
+# define NEXEXT		lst->head->next->next->data
+# define TAIL		lst->tail->data
+# define PREV		lst->tail->prev->data
+# define PREVEV		lst->tail->prev->prev->data
+
+# define HEADB		lb->head->data
+# define NEXTB     	lb->head->next->data
+# define NEXEXTB  	lb->head->next->next->data
+# define TAILB      lb->tail->data
+# define PREVB     	lb->tail->prev->data
+# define PREVEVB   	lb->tail->prev->prev->data
 
 typedef struct		s_stack
 {
@@ -67,7 +89,7 @@ void				pr_rrr(t_list *la, t_list *lb);
 
 void				algo_start(t_list *la, t_list *lb);
 void				algos_len2(t_list *list_a);
-void				algos_len3(t_list *list_a, t_list *list_b);
+void				algos_len3(t_list *list_a);
 void				algos_len4(int len, t_list *list_a, t_list *list_b);
 
 void				is_max(t_list *lst);
