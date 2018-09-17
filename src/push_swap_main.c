@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 12:04:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 18:43:18 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:13:14 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int		main(int argc, char **argv)
 		error_checker(argc, argv, la);
 		lb = ft_lst_new();
 		if (is_sorted(la, lb))
-			exit (1);
+			exit(1);
 		else
 			algo_start(la, lb);
 		//lst_print(la); //to test with
 		//lst_print(lb); //to test with
 	}
 	else
-		exit (1);
+		exit(1);
 }

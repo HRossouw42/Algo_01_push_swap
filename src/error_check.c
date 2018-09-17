@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 11:44:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/13 15:59:50 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/17 13:09:55 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/17 13:11:10 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int			has_duplicates(t_list *lst)
+int				has_duplicates(t_list *lst)
 {
 	int			curr;
 	t_node		*node;
@@ -38,7 +38,7 @@ int			has_duplicates(t_list *lst)
 	return (0);
 }
 
-int			is_not_digit(char *str)
+int				is_not_digit(char *str)
 {
 	int i;
 
@@ -65,7 +65,7 @@ static int		arg_is_int(char *arg)
 	return (1);
 }
 
-void		error_checker(int argc, char **argv, t_list *lst)
+void			error_checker(int argc, char **argv, t_list *lst)
 {
 	if (argc <= 1)
 		exit(1);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_tools.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/17 13:08:49 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/17 13:14:37 by hrossouw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int			find_list_length(t_list *list)
@@ -15,7 +27,7 @@ int			find_list_length(t_list *list)
 	return (list_len);
 }
 
-int		half_list(int len)
+int			half_list(int len)
 {
 	int div;
 
@@ -29,7 +41,7 @@ int		half_list(int len)
 	return (div);
 }
 
-void	algos_smallest_first(int len, t_list *la)
+void		algos_smallest_first(int len, t_list *la)
 {
 	t_node	*node;
 	int		smallest;
@@ -61,13 +73,13 @@ void	algos_smallest_first(int len, t_list *la)
 			pr_rra(la);
 		}
 		else if (smallest_pos > half)
-				pr_rra(la);
+			pr_rra(la);
 		else if (smallest_pos <= half)
 			pr_ra(la);
 	}
 }
 
-void	is_max(t_list *lst)
+void		is_max(t_list *lst)
 {
 	t_node	*max;
 

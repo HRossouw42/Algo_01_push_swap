@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 15:44:57 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/13 15:57:26 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/17 13:07:51 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/17 13:08:10 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	algos_len4(int len, t_list *list_a, t_list *list_b)
 	}
 }
 
-void		algo_small(int len, t_list *la, t_list *lb)
+void	algo_small(int len, t_list *la, t_list *lb)
 {
 	int len2;
 
@@ -77,7 +77,7 @@ void		algo_small(int len, t_list *la, t_list *lb)
 	}
 }
 
-void		algo_medium(int len, t_list *la, t_list *lb)
+void	algo_medium(int len, t_list *la, t_list *lb)
 {
 	int len2;
 

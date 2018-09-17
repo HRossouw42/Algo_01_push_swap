@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 13:55:25 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/10 17:07:06 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/17 13:11:22 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/17 13:14:11 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_list		*get_args(int len, char **argv)
 {
 	t_list	*ret;
-	t_list	*temp;
 	char	**split;
 	int		i;
 	int		j;
