@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 13:27:00 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/06 18:48:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 12:52:01 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@ int		main(int argc, char **argv)
 	t_list	*la;
 	t_list	*lb;
 
-	la = ft_lst_new();
-	lb = ft_lst_new();
-	argv++;
-	while (*argv)
+	if (argc > 1)
 	{
-		la = ft_lst_append(la, ft_atoi(*argv));
-		argv++;
+		la = get_args(argc, argv);
+		error_checker(argc, argv, la);
+		lb = ft_lst_new();
+		get_input(la, lb);
+		if (is_sorted(la, lb))
+			ok();
+		else
+			ko();
 	}
-	//print_stacks(la, lb); //remove later
-	get_input(la, lb);
-	if (is_sorted(la, lb))
-		ok();
-	else
-		ko();
 	return (0);
 }
