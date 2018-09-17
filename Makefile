@@ -6,7 +6,7 @@
 #    By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 13:31:24 by hrossouw          #+#    #+#              #
-#    Updated: 2018/09/17 16:21:12 by hrossouw         ###   ########.fr        #
+#    Updated: 2018/09/17 17:06:53 by hrossouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ NAME2 = checker
  SRC_NAME = push_swap_main.c\
 			swap_ops.c \
 			reverse_ops.c \
+			push_ops.c \
 			rotate_ops.c \
 			visualiser.c \
 			get_input.c \
@@ -42,6 +43,7 @@ NAME2 = checker
 SRC_NAME2 = checker_main.c \
 			swap_ops.c \
 			reverse_ops.c \
+			push_ops.c \
 			rotate_ops.c \
 			visualiser.c \
 			get_input.c \

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   push_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/01 14:49:56 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 17:14:20 by hrossouw         ###   ########.fr       */
+/*   Created: 2018/09/17 17:05:01 by hrossouw          #+#    #+#             */
+/*   Updated: 2018/09/17 17:05:24 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	op_pa(t_list *la, t_list *lb)
 {
-	size_t	i;
-	char	*ret;
-
-	i = 0;
-	if (s)
+	if (!(lb == NULL || lb->head == NULL))
 	{
-		ret = ft_strnew(len);
-		if (!ret)
-			return (NULL);
-		while (i < len)
-		{
-			ret[i] = s[i + start];
-			i++;
-		}
-		return (ret);
+		ft_lst_prefix(la, lb->head->data);
+		ft_lst_del(lb, lb->head);
 	}
-	return (NULL);
+}
+
+void	op_pb(t_list *la, t_list *lb)
+{
+	if (!(la == NULL || la->head == NULL))
+	{
+		ft_lst_prefix(lb, la->head->data);
+		ft_lst_del(la, la->head);
+	}
 }

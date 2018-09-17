@@ -6,18 +6,11 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:25:04 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:13:29 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:07:08 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int		is_list(t_list *lst)
-{
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		return (1);
-	return (0);
-}
 
 void	swap(t_list *lst)
 {
@@ -61,22 +54,4 @@ void	op_ss(t_list *la, t_list *lb)
 		op_sa(la);
 	if (lb != NULL && lb->head != NULL && lb->head->next != NULL)
 		op_sb(lb);
-}
-
-void	op_pa(t_list *la, t_list *lb)
-{
-	if (!(lb == NULL || lb->head == NULL))
-	{
-		ft_lst_prefix(la, lb->head->data);
-		ft_lst_del(lb, lb->head);
-	}
-}
-
-void	op_pb(t_list *la, t_list *lb)
-{
-	if (!(la == NULL || la->head == NULL))
-	{
-		ft_lst_prefix(lb, la->head->data);
-		ft_lst_del(la, la->head);
-	}
 }

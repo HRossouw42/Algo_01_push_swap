@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:07:51 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 15:37:55 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:08:28 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,6 @@ void	algos_len3(t_list *la)
 		}
 		else
 			pr_sa(la);
-	}
-}
-
-void	algos_len4(int len, t_list *list_a, t_list *list_b)
-{
-	if (is_rev_list(list_a) == 1)
-	{
-		pr_sa(list_a);
-		pr_rra(list_a);
-		pr_rra(list_a);
-		pr_sa(list_a);
-	}
-	else
-	{
-		algo_small(len, list_a, list_b);
 	}
 }
 

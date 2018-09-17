@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrossouw <hrossouw@student.wethinkcode.    +#+  +:+       +#+        */
+/*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:50:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/12 18:32:21 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:16:13 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,3 @@ size_t	ft_lst_len(t_list *begin_list)
 	}
 	return (i);
 }
-
-// size_t	ft_lst_len(t_list *begin_list)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	if (begin_list)
-// 	{
-// 		while (begin_list)
-// 		{
-// 			i++;
-// 			begin_list = begin_list->next;
-// 		}
-// 	}
-// 	return (i);
-// }
