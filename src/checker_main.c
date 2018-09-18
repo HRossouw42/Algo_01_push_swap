@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:07:38 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:09:42 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:34:30 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int		main(int argc, char **argv)
 		lb = ft_lst_new();
 		get_input(la, lb);
 		if (is_sorted(la, lb))
+		{
+			free_lst(la);
+			free_lst(lb);
 			ok();
+		}
 		else
 			ko();
 	}

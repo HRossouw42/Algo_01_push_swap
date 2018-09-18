@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 13:32:28 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 17:35:45 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:14:00 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,5 @@ void				move_up_a(int smallest, int len, int pos, t_list *la);
 
 void				destroy_stack(t_list **stack);
 void				free_lst(t_list *list);
+void				free_array(char ***stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 17:26:45 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 18:30:12 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:12:55 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 void	free_lst(t_list *list)
 {
-	while (list->data)
+	t_node	*current;
+
+	current = list->head;
+	if (current == NULL)
+		free(current);
+	else
 	{
-		free(list->data);
-		list->data = list->next->data;
+		while (current != NULL)
+		{
+			free(current);
+			current = current->next;
+		}
 	}
-	free(list->data);
+	free(list);
 }
 
 void	free_double(t_list *l_a, t_list *l_b)
@@ -28,41 +36,15 @@ void	free_double(t_list *l_a, t_list *l_b)
 	free_lst(l_b);
 }
 
-void	destroy_stack(t_list **stack)
+void	free_array(char ***stack)
 {
-	t_list			*tmp;
-	void			*item;
+	char	**array;
 
-	tmp = (*stack)->next;
-	while (*stack)
+	array = *stack;
+	while (*array)
 	{
-		item = (*stack)->data;
-		ft_memdel(&item);
-		ft_memdel((void**)stack);
-		*stack = tmp;
-		if (tmp)
-			tmp = tmp->next;
+		free(*array);
+		array++;
 	}
+	free(*stack);
 }
-
-// void	destroy_stacks(t_s_hold **st)
-// {
-// 	t_list			*args;
-// 	t_list			*stack_a;
-// 	t_list			*stack_b;
-// 	t_list			*ops;
-
-// 	args = (*st)->args;
-// 	stack_a = (*st)->stack_a;
-// 	stack_b = (*st)->stack_b;
-// 	ops = (*st)->ops;
-// 	if (args)
-// 		destroy_stack(&args);
-// 	if (stack_a)
-// 		destroy_stack(&stack_a);
-// 	if (stack_b)
-// 		destroy_stack(&stack_b);
-// 	if (ops)
-// 		destroy_stack(&ops);
-// 	ft_memdel((void**)st);
-// }

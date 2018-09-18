@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:11:22 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:35:34 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:43:28 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list		*get_args(int len, char **argv)
 		split = ft_strsplit(argv[i], ' ');
 		while (split[++j] != NULL)
 			ret = ft_lst_append(ret, ft_atoi(split[j]));
-		ft_strdel(split);
+		free_array(&split);
 	}
 	return (ret);
 }

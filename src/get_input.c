@@ -6,7 +6,7 @@
 /*   By: hrossouw <hrossouw@42.FR>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:11:43 by hrossouw          #+#    #+#             */
-/*   Updated: 2018/09/17 13:12:17 by hrossouw         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:31:22 by hrossouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ void	get_input(t_list *la, t_list *lb)
 	char *str;
 
 	while (ft_get_next_line(0, &str))
+	{
 		read_input(str, la, lb);
+		free(str);
+	}
+	free(str);
 }
