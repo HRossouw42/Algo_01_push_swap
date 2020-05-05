@@ -47,4 +47,7 @@ void	algo_start(t_list *la, t_list *lb)
 		algo_medium(len, la, lb);
 	else
 		algo_large(la, lb);
+	// else
+	// 	algo_medium(len, la, lb);
+	
 }

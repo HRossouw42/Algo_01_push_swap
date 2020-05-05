@@ -12,23 +12,23 @@
 
 #include "../includes/push_swap.h"
 
-void	algos_len2(t_list *list_a)
+void algos_len2(t_list *list_a)
 {
 	while (list_a != NULL)
 	{
 		if (is_sorted_list(list_a))
-			break ;
+			break;
 		else if (get_first(list_a) > get_last(list_a))
 			pr_sa(list_a);
 	}
 }
 
-void	algos_len3(t_list *la)
+void algos_len3(t_list *la)
 {
 	while (la != NULL)
 	{
 		if (is_sorted_list(la))
-			break ;
+			break;
 		else if (HEADA < NEXTA)
 		{
 			pr_rra(la);
@@ -47,7 +47,7 @@ void	algos_len3(t_list *la)
 	}
 }
 
-void	algo_small(int len, t_list *la, t_list *lb)
+void algo_small(int len, t_list *la, t_list *lb)
 {
 	int len2;
 
@@ -67,9 +67,9 @@ void	algo_small(int len, t_list *la, t_list *lb)
 	}
 }
 
-void	algo_medium(int len, t_list *la, t_list *lb)
+void algo_medium(int len, t_list *la, t_list *lb)
 {
-	int		len2;
+	int len2;
 
 	len2 = 0;
 	while (len > 3)
@@ -77,7 +77,7 @@ void	algo_medium(int len, t_list *la, t_list *lb)
 		algos_smallest_first(len, la);
 		pr_pb(la, lb);
 		if (is_sorted_list(la))
-			break ;
+			break;
 		len--;
 		len2++;
 	}
@@ -90,9 +90,9 @@ void	algo_medium(int len, t_list *la, t_list *lb)
 	}
 }
 
-void	algo_large(t_list *la, t_list *lb)
+void algo_largest(t_list *la, t_list *lb)
 {
-	int		store;
+	int store;
 
 	while (!(is_sorted_list(la)) || ft_lst_len(lb) != 0)
 	{
@@ -111,8 +111,46 @@ void	algo_large(t_list *la, t_list *lb)
 			pr_rra(la);
 		}
 		else if (is_sorted_list(la) &&
-		get_first(la) > get_first(lb) && get_first(lb) != 0)
+				 get_first(la) > get_first(lb) && get_first(lb) != 0)
 			move_lst_ba(la, lb);
+		else
+			pr_pb(la, lb);
+	}
+}
+
+void	algo_large(t_list *la, t_list *lb) 
+{
+	int			store;
+	ft_putstr("RUNNING");
+
+	while (!is_sorted(la, lb) || ft_lst_len(lb) != 0)
+	{
+		if (get_first(la) > get_second(la))
+			pr_sa(la);
+		else if (get_first(la) > get_last(la))
+			pr_ra(la);
+		else if (get_first(la) < get_last(lb))
+		{
+			//COMBO
+			pr_pb(la, lb);
+			if (ft_lst_len(lb) > 1){
+				pr_rb(lb);
+			}
+			// push_b_bot(st, 0);
+		}
+		else if (get_first(la) < get_first(lb))
+		{
+			store = get_first(la);
+			pr_ra(la);
+			while (get_first(lb) > store)
+				pr_pa(la, lb);
+			pr_rra(la);
+		}
+		else if (is_sorted(la, lb) &&
+				get_first(la) > get_first(lb)){
+					while(lb)
+						pr_pa(la, lb);
+				}
 		else
 			pr_pb(la, lb);
 	}
