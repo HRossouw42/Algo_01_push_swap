@@ -124,4 +124,5 @@ void				move_up_a(int smallest, int len, int pos, t_list *la);
 void				destroy_stack(t_list **stack);
 void				free_lst(t_list *list);
 void				free_array(char ***stack);
+void				move_list_b_to_a(t_list *la, t_list *lb);
 #endif

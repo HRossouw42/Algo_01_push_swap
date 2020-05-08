@@ -34,7 +34,7 @@ void	swap(t_list *lst)
 
 void	op_sa(t_list *lst)
 {
-	if (is_list(lst))
+	if (is_list(lst) && ft_lst_len(lst) > 1)
 	{
 		swap(lst);
 	}
