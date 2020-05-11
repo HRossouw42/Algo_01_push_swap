@@ -12,6 +12,12 @@
 
 #include "../includes/push_swap.h"
 
+void clearScreen()
+{
+  const char *CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
+  write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, 12);
+}
+
 void	lst_print(t_list *lst)
 {
 	t_node *temp;
@@ -32,6 +38,7 @@ void	lst_print(t_list *lst)
 
 void	print_stacks(t_list *la, t_list *lb)
 {
+	clearScreen();
 	ft_putstr_fd("Stack A: ", 2);
 	lst_print(la);
 	ft_putstr_fd("\nStack B: ", 2);
