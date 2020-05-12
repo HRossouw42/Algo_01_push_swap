@@ -21,7 +21,7 @@ void	pr_ra(t_list *lst)
 void	pr_rb(t_list *lst)
 {
 	op_rb(lst);
-	ft_putstr("ra\n");
+	ft_putstr("rb\n");
 }
 
 void	pr_rr(t_list *la, t_list *lb)
