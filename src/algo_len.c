@@ -90,34 +90,6 @@ void algo_medium(int len, t_list *la, t_list *lb)
 	}
 }
 
-// void algo_largest(t_list *la, t_list *lb)
-// {
-// 	int store;
-
-// 	while (!(is_sorted_list(la)) || ft_lst_len(lb) != 0)
-// 	{
-// 		if (get_first(la) > get_second(la))
-// 			pr_sa(la);
-// 		else if (get_first(la) > get_last(la))
-// 			pr_rra(la);
-// 		else if (get_first(la) < get_last(lb))
-// 			pr_pb(la, lb);
-// 		else if (get_first(la) < get_first(lb))
-// 		{
-// 			store = get_first(la);
-// 			pr_ra(la);
-// 			while (get_first(lb) > store)
-// 				pr_pa(la, lb);
-// 			pr_rra(la);
-// 		}
-// 		else if (is_sorted_list(la) &&
-// 				 get_first(la) > get_first(lb) && get_first(lb) != 0)
-// 			move_lst_ba(la, lb);
-// 		else
-// 			pr_pb(la, lb);
-// 	}
-// }
-
 void	algo_large(t_list *la, t_list *lb) 
 {
 	int			store;
@@ -127,10 +99,8 @@ void	algo_large(t_list *la, t_list *lb)
 		if (get_first(la) > get_second(la)){
 			pr_sa(la);
 		}
-		
 		else if (get_first(la) > get_last(la))
 			pr_ra(la);
-		
 		else if (get_first(la) < get_last(lb))
 		{
 			pr_pb(la, lb);
@@ -138,7 +108,6 @@ void	algo_large(t_list *la, t_list *lb)
 				pr_rb(lb);
 			}
 		}
-		
 		else if (get_first(la) < get_first(lb))
 		{
 			store = get_first(la);
@@ -147,12 +116,10 @@ void	algo_large(t_list *la, t_list *lb)
 				pr_pa(la, lb);
 			pr_rra(la);
 		}
-		
 		else if (is_sorted_list(la) &&
 				get_first(la) > get_first(lb)){
 					move_list_b_to_a(la, lb);
 				}
-		
 		else
 			pr_pb(la, lb);
 	}

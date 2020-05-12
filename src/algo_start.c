@@ -46,8 +46,5 @@ void	algo_start(t_list *la, t_list *lb)
 	else if (len <= 101)
 		algo_medium(len, la, lb);
 	else
-		algo_large(la, lb);
-	// else
-	// 	algo_medium(len, la, lb);
-	
+		algo_large(la, lb);	
 }
