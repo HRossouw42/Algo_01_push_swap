@@ -101,15 +101,13 @@ void	algo_large(t_list *la, t_list *lb)
 		}
 		else if (get_first(la) > get_last(la))
 			pr_ra(la);
-		else if (get_first(la) < get_last(lb))
-		{
+		else if (get_first(la) < get_last(lb)){
 			pr_pb(la, lb);
 			if (ft_lst_len(lb) > 1){
 				pr_rb(lb);
 			}
 		}
-		else if (get_first(la) < get_first(lb))
-		{
+		else if (get_first(la) < get_first(lb)){
 			store = get_first(la);
 			pr_ra(la);
 			while (get_first(lb) > store)
