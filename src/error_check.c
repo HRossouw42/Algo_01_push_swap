@@ -55,14 +55,14 @@ int				is_not_digit(char *str)
 	return (0);
 }
 
-static int		arg_is_int(char *arg)
+static int		arg_is_int(char arg)
 {
 	long		result;
-
 	result = ft_atol(arg);
 	if (result > 2147483647 || result < -2147483648)
 		return (0);
-	return (1);
+	else 
+		return (1);
 }
 
 void			error_checker(int argc, char **argv, t_list *lst)
@@ -74,7 +74,7 @@ void			error_checker(int argc, char **argv, t_list *lst)
 	argv++;
 	while (*argv)
 	{
-		if ((arg_is_int(*argv) == 0))
+		if (ft_atol(*argv) > 2147483647 || ft_atol(*argv) < -2147483647)
 			error();
 		if ((is_not_digit(*argv)) == 1)
 			error();
