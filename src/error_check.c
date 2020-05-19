@@ -55,16 +55,6 @@ int				is_not_digit(char *str)
 	return (0);
 }
 
-static int		arg_is_int(char arg)
-{
-	long		result;
-	result = ft_atol(arg);
-	if (result > 2147483647 || result < -2147483648)
-		return (0);
-	else 
-		return (1);
-}
-
 void			error_checker(int argc, char **argv, t_list *lst)
 {
 	if (argc <= 1)
