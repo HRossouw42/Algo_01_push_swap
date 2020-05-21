@@ -15,53 +15,57 @@
 
 # include "../libft/includes/libft.h"
 
-# define FREEDOM	(free3(la), free3(lb);)
-# define HEADA		la->head->data
-# define NEXTA		la->head->next->data
-# define NEXEXTA	la->head->next->next->data
-# define TAILA		la->tail->data
-# define PREVA		la->tail->prev->data
-# define PREVEVA	la->tail->prev->prev->data
+# define ERROR ft_putendl_fd("Error", 2);
 
-# define HEAD		lst->head->data
-# define NEXT		lst->head->next->data
-# define NEXEXT		lst->head->next->next->data
-# define TAIL		lst->tail->data
-# define PREV		lst->tail->prev->data
-# define PREVEV		lst->tail->prev->prev->data
+# define SA ft_putendl_fd("sa", 1);
+# define SB ft_putendl_fd("sb", 1);
+# define SS ft_putendl_fd("ss", 1);
+# define PA ft_putendl_fd("pa", 1);
+# define PB ft_putendl_fd("pb", 1);
+# define RA ft_putendl_fd("ra", 1);
+# define RB ft_putendl_fd("rb", 1);
+# define RRA ft_putendl_fd("rra", 1);
+# define RRB ft_putendl_fd("rrb", 1);
+# define RR ft_putendl_fd("rr", 1);
+# define RRR ft_putendl_fd("rrr", 1);
 
-# define HEADB		lb->head->data
-# define NEXTB     	lb->head->next->data
-# define NEXEXTB  	lb->head->next->next->data
-# define TAILB      lb->tail->data
-# define PREVB     	lb->tail->prev->data
-# define PREVEVB   	lb->tail->prev->prev->data
-
-typedef struct		s_stack
+typedef	struct		s_stack
 {
-	t_node			*a_head;
-	t_node			*b_head;
-	t_node			*a_tail;
-	t_node			*b_tail;
-	int				index;
+	int				data;
+	int				pos;
+	struct s_stack	*next;
 }					t_stack;
+
+typedef	struct		s_pushswap
+{
+	t_stack			*a;
+	t_stack			*b;
+	char			**raw;
+	int				loc;
+	int				size;
+	int				debug;
+	int				vis;
+	int				colour;
+	int				supcolour;
+}					t_hold;
 
 int					is_list(t_list *list);
 
-void				swap(t_list *list);
-void				op_sa(t_list *lst);
-void				op_sb(t_list *lst);
-void				op_ss(t_list *la, t_list *lb);
-void				op_pa(t_list *la, t_list *lb);
-void				op_pb(t_list *la, t_list *lb);
+int					sa(t_hold *node, char *cmd, int set);
+int					sb(t_hold *node, char *cmd, int set);
+int					ss(t_hold *node, char *cmd, int set);
 
-void				rotate(t_list *lst);
-void				op_ra(t_list *lst);
-void				op_rb(t_list *lst);
-void				op_rr(t_list *la, t_list *lb);
-void				op_rra(t_list *lst);
-void				op_rrb(t_list *lst);
-void				op_rrr(t_list *la, t_list *lb);
+int					pa(t_hold *node, char *cmd, int set);
+int					pb(t_hold *node, char *cmd, int set);
+
+int					ra(t_hold *node, char *cmd, int set);
+int					rb(t_hold *node, char *cmd, int set);
+
+int					rra(t_hold *node, char *cmd, int set);
+int					rrb(t_hold *node, char *cmd, int set);
+
+int					rr(t_hold *node, char *cmd, int set);
+int					rrr(t_hold *node, char *cmd, int set);
 
 void				print_stacks(t_list *la, t_list *lb);
 

@@ -12,28 +12,53 @@
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_list *lst)
+int		ra(t_hold *node, char *cmd, int set)
 {
-	ft_lst_append(lst, lst->head->data);
-	ft_lst_del(lst, lst->head);
+	t_stack *temp;
+	t_stack *tmplist;
+
+	if (listsize(node->a) <= 1)
+		return (1);
+	temp = startpop(&node->a);
+	temp->next = NULL;
+	tmplist = node->a;
+	while (tmplist->next != NULL)
+		tmplist = tmplist->next;
+	tmplist->next = temp;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "ra");
+		RA;
+	}
+	return (1);
 }
 
-void	op_ra(t_list *lst)
+int		rb(t_hold *node, char *cmd, int set)
 {
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		rotate(lst);
+	t_stack *temp;
+	t_stack *tmplist;
+
+	if (listsize(node->b) <= 1)
+		return (1);
+	temp = startpop(&node->b);
+	temp->next = NULL;
+	tmplist = node->b;
+	while (tmplist->next != NULL)
+		tmplist = tmplist->next;
+	tmplist->next = temp;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rb");
+		RB;
+	}
+	return (1);
 }
 
-void	op_rb(t_list *lst)
+int		rr(t_hold *node, char *cmd, int set)
 {
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		rotate(lst);
-}
-
-void	op_rr(t_list *la, t_list *lb)
-{
-	if (la != NULL && la->head != NULL && la->head->next != NULL)
-		rotate(la);
-	if (lb != NULL && lb->head != NULL && lb->head->next != NULL)
-		rotate(lb);
+	ra(node, cmd, set);
+	rb(node, cmd, set);
+	return (1);
 }

@@ -96,6 +96,7 @@ void	algo_large(t_list *la, t_list *lb)
 
 	while (!is_sorted_list(la) || ft_lst_len(lb) != 0)
 	{
+		print_stacks(la, lb);
 		if (get_first(la) > get_second(la)){
 			pr_sa(la);
 		}

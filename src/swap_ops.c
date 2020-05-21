@@ -12,46 +12,33 @@
 
 #include "../includes/push_swap.h"
 
-void	swap(t_list *lst)
+int		sa(t_hold *node, char *cmd, int set)
 {
-	t_node	*node;
-	t_node	*c_node;
+	t_stack	*temp;
+	t_stack	*tempnext;
 
-	node = lst->head;
-	lst->head = node->next;
-	lst->head->prev = NULL;
-	node->prev = lst->head;
-	node->next = lst->head->next;
-	lst->head->next = node;
-	c_node = lst->head;
-	while (c_node->next != NULL)
+	temp = node->a;
+	if (temp == NULL)
+		return (1);
+	if (temp->next == NULL)
+		return (1);
+	temp = node->a;
+	tempnext = temp->next;
+	temp->next = tempnext->next;
+	tempnext->next = temp;
+	node->a = tempnext;
+	if (set == 1)
 	{
-		c_node = c_node->next;
-		if (c_node->next == NULL)
-			lst->tail = c_node;
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "sa");
+		SA;
 	}
+	return (1);
 }
 
-void	op_sa(t_list *lst)
+int		ss(t_hold *node, char *cmd, int set)
 {
-	if (is_list(lst) && ft_lst_len(lst) > 1)
-	{
-		swap(lst);
-	}
-}
-
-void	op_sb(t_list *lst)
-{
-	if (is_list(lst))
-	{
-		swap(lst);
-	}
-}
-
-void	op_ss(t_list *la, t_list *lb)
-{
-	if (la != NULL && la->head != NULL && la->head->next != NULL)
-		op_sa(la);
-	if (lb != NULL && lb->head != NULL && lb->head->next != NULL)
-		op_sb(lb);
+	sa(node, cmd, set);
+	sb(node, cmd, set);
+	return (1);
 }

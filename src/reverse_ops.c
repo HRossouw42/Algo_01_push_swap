@@ -12,28 +12,55 @@
 
 #include "../includes/push_swap.h"
 
-void	reverse_rotate(t_list *lst)
+int		rra(t_hold *node, char *cmd, int set)
 {
-	ft_lst_prefix(lst, lst->tail->data);
-	ft_lst_del(lst, lst->tail);
+	t_stack	*tmp;
+	t_stack	*lst;
+
+	if (listsize(node->a) <= 1)
+		return (1);
+	tmp = endpop(&node->a);
+	if (tmp == NULL)
+		return (1);
+	lst = (node->a);
+	tmp->next = lst;
+	lst = tmp;
+	node->a = lst;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rra");
+		RRA;
+	}
+	return (1);
 }
 
-void	op_rra(t_list *lst)
+int		rrb(t_hold *node, char *cmd, int set)
 {
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		reverse_rotate(lst);
+	t_stack	*tmp;
+	t_stack	*lst;
+
+	if (listsize(node->b) <= 1)
+		return (1);
+	tmp = endpop(&node->b);
+	if (tmp == NULL)
+		return (1);
+	lst = (node->b);
+	tmp->next = lst;
+	lst = tmp;
+	node->b = lst;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rrb");
+		RRB;
+	}
+	return (1);
 }
 
-void	op_rrb(t_list *lst)
+int		rrr(t_hold *node, char *cmd, int set)
 {
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		reverse_rotate(lst);
-}
-
-void	op_rrr(t_list *l_a, t_list *l_b)
-{
-	if (l_a != NULL && l_a->head != NULL && l_a->head->next != NULL)
-		reverse_rotate(l_a);
-	if (l_b != NULL && l_b->head != NULL && l_b->head->next != NULL)
-		reverse_rotate(l_b);
+	rra(node, cmd, set);
+	rrb(node, cmd, set);
+	return (1);
 }

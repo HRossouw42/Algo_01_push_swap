@@ -12,20 +12,46 @@
 
 #include "../includes/push_swap.h"
 
-void	op_pa(t_list *la, t_list *lb)
+int		pa(t_hold *node, char *cmd, int set)
 {
-	if (!(lb == NULL || lb->head == NULL))
+	t_stack	*tempb;
+
+	if (node->b == NULL)
 	{
-		ft_lst_prefix(la, lb->head->data);
-		ft_lst_del(lb, lb->head);
+		return (1);
 	}
+	tempb = startpop(&node->b);
+	if (tempb == NULL)
+		return (1);
+	tempb->next = node->a;
+	node->a = tempb;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "pa");
+		PA;
+	}
+	return (1);
 }
 
-void	op_pb(t_list *la, t_list *lb)
+int		pb(t_hold *node, char *cmd, int set)
 {
-	if (!(la == NULL || la->head == NULL))
+	t_stack	*tempa;
+
+	if (node->a == NULL)
 	{
-		ft_lst_prefix(lb, la->head->data);
-		ft_lst_del(la, la->head);
+		return (1);
 	}
+	tempa = startpop(&node->a);
+	if (tempa == NULL)
+		return (1);
+	tempa->next = node->b;
+	node->b = tempa;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "pb");
+		PB;
+	}
+	return (1);
 }
