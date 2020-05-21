@@ -12,39 +12,129 @@
 
 #include "../includes/push_swap.h"
 
-void	free_lst(t_list *list)
+t_hold	*malloctime(void)
 {
-	t_node	*current;
+	t_hold	*ret;
 
-	current = list->head;
-	if (current == NULL)
-		free(current);
+	ret = (t_hold*)malloc(sizeof(t_hold));
+	ret->loc = 0;
+	ret->size = 0;
+	ret->debug = 1;
+	ret->colour = 0;
+	ret->supcolour = 0;
+	ret->vis = 0;
+	ret->a = (t_stack*)malloc(sizeof(t_stack));
+	ret->b = (t_stack*)malloc(sizeof(t_stack));
+	ret->a->data = 0;
+	ret->a->pos = 0;
+	ret->b->data = 0;
+	ret->b->pos = 0;
+	return (ret);
+}
+
+int		isvalidflag(char *s, t_hold *node)
+{
+	int i;
+
+	i = 0;
+	if (s[i] == '-' && s[i + 1] == 'v')
+	{
+		node->vis = 1;
+		return (1);
+	}
+	if (s[i] == '-' && s[i + 1] == 'c')
+	{
+		node->colour = 1;
+		return (1);
+	}
+	if (s[i] == '-' && s[i + 1] == 's')
+	{
+		node->supcolour = 1;
+		return (1);
+	}
+	if (s[i] == '-' && s[i + 1] == 'd')
+	{
+		node->debug = 1;
+		return (1);
+	}
+	return (0);
+}
+
+int		isflag(char *s, t_hold *node)
+{
+	int i;
+
+	i = 0;
+	if (isvalidflag(s, node) == 1)
+		return (1);
+	i++;
+	while (s[0] == '-' && (s[i] >= '0' && s[i] <= '9'))
+	{
+		i++;
+		if (s[i] == '\0')
+			return (1);
+	}
+	return (0);
+}
+
+int		isvalid(char *s, t_hold *node)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		while (ft_isspace(s[i]) == 1 && s[i] != '\0')
+			i++;
+		if (ft_strcmp(s + i, "2147483648") == 0 ||
+			ft_strcmp(s + i, "-2147483649") == 0)
+			return (0);
+		if ((!(s[i] >= '0' && s[i] <= '9') && s[i] != '\0'))
+		{
+			if (isflag(s + i, node) == 1)
+				return (1);
+			else
+				return (0);
+		}
+		i++;
+	}
+	return (i);
+}
+
+int		sizefind(t_hold *node)
+{
+	int	i;
+
+	i = 0;
+	while (node->raw[i] != NULL)
+	{
+		i++;
+	}
+	i -= (node->debug + node->colour);
+	return (i);
+}
+int		searchandmalloc(char **str, t_hold *node, int arc)
+{
+	int	i;
+
+	i = 0;
+	if (arc == 2)
+	{
+		node->raw = ft_split(str[1]);
+	}
 	else
 	{
-		while (current != NULL)
-		{
-			free(current);
-			current = current->next;
-		}
+		node->raw = str + 1;
 	}
-	free(list);
-}
-
-void	free_double(t_list *l_a, t_list *l_b)
-{
-	free_lst(l_a);
-	free_lst(l_b);
-}
-
-void	free_array(char ***stack)
-{
-	char	**array;
-
-	array = *stack;
-	while (*array)
+	while (node->raw[i] != NULL)
 	{
-		free(*array);
-		array++;
+		if (isvalid(node->raw[i], node) == 0)
+		{
+			ERROR;
+			return (0);
+		}
+		i++;
 	}
-	free(*stack);
+	node->size = sizefind(node);
+	return (i);
 }
