@@ -12,14 +12,15 @@
 
 #include "../includes/push_swap.h"
 
-t_hold	*malloctime(void)
+// pre program memory allocation
+t_hold	*prep_memory(void)
 {
 	t_hold	*ret;
 
 	ret = (t_hold*)malloc(sizeof(t_hold));
 	ret->loc = 0;
 	ret->size = 0;
-	ret->debug = 1;
+	ret->debug = 0;
 	ret->colour = 0;
 	ret->supcolour = 0;
 	ret->vis = 0;
@@ -32,6 +33,9 @@ t_hold	*malloctime(void)
 	return (ret);
 }
 
+// -v visualiser
+// -d debug
+// -c colour
 int		isvalidflag(char *s, t_hold *node)
 {
 	int i;
@@ -77,6 +81,7 @@ int		isflag(char *s, t_hold *node)
 	return (0);
 }
 
+// error checking for argument inputs
 int		isvalid(char *s, t_hold *node)
 {
 	int	i;
@@ -113,7 +118,10 @@ int		sizefind(t_hold *node)
 	i -= (node->debug + node->colour);
 	return (i);
 }
-int		searchandmalloc(char **str, t_hold *node, int arc)
+
+// input list memory allocation with string split
+// applies error checking & flag checking
+int		prep_arg(char **str, t_hold *node, int arc)
 {
 	int	i;
 

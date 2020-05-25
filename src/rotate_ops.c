@@ -17,7 +17,7 @@ int		ra(t_hold *node, char *cmd, int set)
 	t_stack *temp;
 	t_stack *tmplist;
 
-	if (listsize(node->a) <= 1)
+	if (list_size(node->a) <= 1)
 		return (1);
 	temp = startpop(&node->a);
 	temp->next = NULL;
@@ -39,7 +39,7 @@ int		rb(t_hold *node, char *cmd, int set)
 	t_stack *temp;
 	t_stack *tmplist;
 
-	if (listsize(node->b) <= 1)
+	if (list_size(node->b) <= 1)
 		return (1);
 	temp = startpop(&node->b);
 	temp->next = NULL;

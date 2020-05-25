@@ -30,15 +30,14 @@ NAME2 = checker
 			get_input.c \
 			is_sorted.c \
 			algo_start.c \
-			print_swap_ops.c \
-			print_push_ops.c \
-			print_rotate_ops.c \
 			algo_len.c \
 			algo_tools.c \
 			error_check.c \
 			get_args.c \
 			list_tools.c \
 			list_free.c \
+			print_methods.c \
+			str_split.c \
 			algo_tools_2.c \
 
 SRC_NAME2 = checker_main.c \
@@ -50,9 +49,8 @@ SRC_NAME2 = checker_main.c \
 			get_input.c \
 			is_sorted.c \
 			algo_start.c \
-			print_swap_ops.c \
-			print_push_ops.c \
-			print_rotate_ops.c \
+			print_methods.c \
+			str_split.c \
 			algo_len.c \
 			algo_tools.c \
 			error_check.c \

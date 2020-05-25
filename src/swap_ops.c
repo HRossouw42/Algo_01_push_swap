@@ -36,6 +36,30 @@ int		sa(t_hold *node, char *cmd, int set)
 	return (1);
 }
 
+int		sb(t_hold *node, char *cmd, int set)
+{
+	t_stack	*temp;
+	t_stack	*tempnext;
+
+	temp = node->b;
+	if (temp == NULL)
+		return (1);
+	if (temp->next == NULL)
+		return (1);
+	temp = node->b;
+	tempnext = temp->next;
+	temp->next = tempnext->next;
+	tempnext->next = temp;
+	node->b = tempnext;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "sb");
+		SB;
+	}
+	return (1);
+}
+
 int		ss(t_hold *node, char *cmd, int set)
 {
 	sa(node, cmd, set);

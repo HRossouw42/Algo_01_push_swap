@@ -15,6 +15,8 @@
 
 # include "../libft/includes/libft.h"
 
+# define OK ft_putendl_fd("OK", 1);
+# define KO ft_putendl_fd("KO", 1);
 # define ERROR ft_putendl_fd("Error", 2);
 
 # define SA ft_putendl_fd("sa", 1);
@@ -28,6 +30,15 @@
 # define RRB ft_putendl_fd("rrb", 1);
 # define RR ft_putendl_fd("rr", 1);
 # define RRR ft_putendl_fd("rrr", 1);
+
+# define NRM  "\x1B[0m"
+# define RED  "\x1B[31m"
+# define GRN  "\x1B[32m"
+# define YEL  "\x1B[33m"
+# define BLU  "\x1B[34m"
+# define MAG  "\x1B[35m"
+# define CYN  "\x1B[36m"
+# define WHT  "\x1B[37m"
 
 typedef	struct		s_stack
 {
@@ -67,66 +78,37 @@ int					rrb(t_hold *node, char *cmd, int set);
 int					rr(t_hold *node, char *cmd, int set);
 int					rrr(t_hold *node, char *cmd, int set);
 
-void				print_stacks(t_list *la, t_list *lb);
+void				print_debug(t_hold *node);
 
-void				get_input(t_list *la, t_list *lb);
-int					is_sorted(t_list *la, t_list *lb);
-int					is_sorted_list(t_list *lst);
+int					create_stacks(char **str, t_hold *node, int checker);
+
+int					is_stack_sorted(t_hold *node);
+int					is_list_sorted(t_stack *list, char ab);
 int					is_rev_list(t_list *la);
 
-void				ok(void);
-void				error(void);
-void				ko(void);
+int					list_size(t_stack *lst);
+char				**ft_split(char *str);
+t_hold				*prep_memory(void);
+int					prep_arg(char **str, t_hold *node, int arc);
 
-void				pr_sa(t_list *lst);
-void				pr_sb(t_list *lst);
-void				pr_ss(t_list *la, t_list *lb);
-void				pr_sa(t_list *lst);
-void				pr_pa(t_list *la, t_list *lb);
-void				pr_pb(t_list *la, t_list *lb);
-void				pr_ra(t_list *lst);
-void				pr_rb(t_list *lst);
-void				pr_rrr(t_list *la, t_list *lb);
-void				pr_rra(t_list *lst);
-void				pr_rrb(t_list *lst);
-void				pr_rrr(t_list *la, t_list *lb);
+t_stack				*startpop(t_stack **list);
+t_stack				*endpop(t_stack **list);
 
-void				algo_start(t_list *la, t_list *lb);
-void				algos_len2(t_list *list_a);
-void				algos_len3(t_list *list_a);
-void				algos_len4(int len, t_list *list_a, t_list *list_b);
+int					last_int_value(t_stack *lst);
+int					get_max_values(t_hold *node, int size);
 
-void				is_max(t_list *lst);
-void				algos_smallest_first(int len, t_list *la);
-void				is_max(t_list *lst);
-int					is_minimum(t_list *lst);
+int					get_input(t_hold *node);
 
-void				algo_small(int len, t_list *la, t_list *lb);
-void				algo_medium(int len, t_list *la, t_list *lb);
-void				algo_large(t_list *la, t_list *lb);
-void				algo_rev(int len, t_list *list_a, t_list *list_b);
+int					sort(t_hold *node, char *cmd);
+int					maxposition(t_stack *lst, int max_val, int totalrange);
+void				small_sort(t_hold *node, char *cmd);
+void				move_node(t_hold *node, int totalrange, int size, char *cmd);
+void				return_merge(t_hold *node, char *cmd);
+int					maxval(t_stack *lst);
+int					closestsmaxval(t_stack *tmp, int totalrange, int hi);
+int					maxposition(t_stack *lst, int max_val, int totalrange);
 
-int					half_list(int len);
+void				printout(t_hold *node, char *cmd);
+void				visualiser(t_hold *node, char *cmd);
 
-void				error_checker(int argc, char **argv, t_list *lst);
-
-void				lst_print(t_list *lst);
-
-t_list				*get_args(int len, char **argv);
-
-int					has_duplicates(t_list *lst);
-
-int					find_list_length(t_list *list);
-int					get_first(t_list *lst);
-int					get_second(t_list *lst);
-int					get_last(t_list *lst);
-int					is_smallest_pos(t_list *lst);
-
-void				move_lst_ba(t_list *la, t_list *lb);
-void				move_up_a(int smallest, int len, int pos, t_list *la);
-
-void				destroy_stack(t_list **stack);
-void				free_lst(t_list *list);
-void				free_array(char ***stack);
-void				move_list_b_to_a(t_list *la, t_list *lb);
 #endif

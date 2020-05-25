@@ -12,62 +12,19 @@
 
 #include "../includes/push_swap.h"
 
-int				has_duplicates(t_list *lst)
+//max val in list
+int		maxval(t_stack *lst)
 {
-	int			curr;
-	t_node		*node;
-	t_node		*tmp;
+	int		hi;
+	t_stack	*tmp;
 
-	if (!lst)
-		return (0);
-	node = lst->head;
-	tmp = lst->head;
-	curr = node->data;
-	while (tmp)
+	tmp = lst;
+	hi = -2147483648;
+	while (tmp != NULL)
 	{
-		node = tmp;
-		curr = tmp->data;
-		while (node->next)
-		{
-			if (curr == node->next->data)
-				return (1);
-			node = node->next;
-		}
+		if (tmp->pos > hi)
+			hi = tmp->pos;
 		tmp = tmp->next;
 	}
-	return (0);
-}
-
-int				is_not_digit(char *str)
-{
-	int i;
-
-	i = 0;
-	if (str[i] == '-')
-		i++;
-	while (str[i])
-	{
-		if (str[i] != '-' && str[i] != '+' && \
-				(!(ft_isdigit(str[i]))) && (!(ft_isspace(str[i]))))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void			error_checker(int argc, char **argv, t_list *lst)
-{
-	if (argc <= 1)
-		exit(1);
-	if (has_duplicates(lst))
-		error();
-	argv++;
-	while (*argv)
-	{
-		if (ft_atol(*argv) > 2147483647 || ft_atol(*argv) < -2147483647)
-			error();
-		if ((is_not_digit(*argv)) == 1)
-			error();
-		argv++;
-	}
+	return (hi);
 }

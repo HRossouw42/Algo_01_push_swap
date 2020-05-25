@@ -12,39 +12,82 @@
 
 #include "../includes/push_swap.h"
 
-void	algo_reverse(int len, t_list *list_a, t_list *list_b)
+void	setup_node_range(int *totalrange, t_hold *node)
 {
-	while (len > 3)
+	if (*totalrange != 0)
+		*totalrange = *totalrange - (*totalrange / 5);
+	else
+		*totalrange = node->size / 5;
+	if (*totalrange < 5)
+		*totalrange = 4;
+}
+
+void	sortbackinbody(t_hold *node, char *cmd, int ctoint, int size)
+{
+	if (ctoint >= size / 2)
+		rrb(node, cmd, 1);
+	else if (ctoint < size / 2)
+		rb(node, cmd, 1);
+}
+
+void	return_merge(t_hold *node, char *cmd)
+{
+	t_stack	*b;
+	int		maxint;
+	int		ctoint;
+	int		size;
+
+	b = node->b;
+	size = list_size(b);
+	while (b != NULL)
 	{
-		pr_pb(list_a, list_b);
-		len--;
-	}
-	pr_sa(list_a);
-	pr_rra(list_a);
-	while (list_b->head != NULL)
-	{
-		pr_pa(list_a, list_b);
-		pr_ra(list_a);
+		maxint = maxval(b);
+		ctoint = maxposition(b, maxint, 1);
+		if (b->pos == maxint)
+		{
+			pa(node, cmd, 1);
+			b = node->b;
+			size = list_size(b);
+		}
+		else
+			sortbackinbody(node, cmd, ctoint, size);
+		if (node->supcolour == 1 || node->vis == 1)
+			printout(node, cmd);
+		print_debug(node);
+		b = node->b;
 	}
 }
 
-void	algo_start(t_list *la, t_list *lb)
+/*	
+	main algo start
+	merge sort for larger lists
+	see https://en.wikipedia.org/wiki/Merge_sort 
+	split stack into nodes, compare nodes, swap values, sort back in, repeat
+*/
+int		sort(t_hold *node, char *cmd)
 {
-	int len;
+	t_stack	*a;
+	int		size;
+	int		totalrange;
 
-	len = find_list_length(la);
-	if ((is_rev_list(la) == 1) && len > 2)
-		algo_reverse(len, la, lb);
-	else if (len == 2)
-		algos_len2(la);
-	else if (len == 3)
-		algos_len3(la);
-	else if (len == 4)
-		algos_len4(len, la, lb);
-	else if (len <= 10)
-		algo_small(len, la, lb);
-	else if (len <= 101)
-		algo_medium(len, la, lb);
-	else
-		algo_large(la, lb);	
+	totalrange = 0;
+	if (node->size <= 5)
+	{
+		small_sort(node, cmd);
+		return (1);
+	}
+	while (1)
+	{
+		a = node->a;
+		if (a == NULL)
+			return_merge(node, cmd);
+		if (is_stack_sorted(node) == 1 && list_size(node->b) == 0)
+			break ;
+		size = list_size(a);
+		setup_node_range(&totalrange, node);
+		move_node(node, totalrange, size, cmd);
+	}
+	if (node->colour == 1)
+		printout(node, cmd);
+	return (1);
 }

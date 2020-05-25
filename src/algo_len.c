@@ -12,129 +12,91 @@
 
 #include "../includes/push_swap.h"
 
-void algos_len2(t_list *list_a)
+int			minval(t_stack *lst)
 {
-	while (list_a != NULL)
+	int		low;
+	t_stack	*tmp;
+
+	tmp = lst;
+	low = 2147483647;
+	while (tmp != NULL)
 	{
-		if (is_sorted_list(list_a))
-			break;
-		else if (get_first(list_a) > get_last(list_a))
-			pr_sa(list_a);
+		if (tmp->pos < low)
+			low = tmp->pos;
+		tmp = tmp->next;
 	}
+	return (low);
 }
 
-void algos_len3(t_list *la)
+void		movesmalltob(t_hold *node, char *cmd)
 {
-	while (la != NULL)
+	int		count;
+	int		min;
+	int		minloc;
+	t_stack *a;
+
+	count = node->size - 3;
+	while (count > 0)
 	{
-		if (is_sorted_list(la))
-			break;
-		else if (HEADA < NEXTA)
+		a = node->a;
+		min = minval(node->a);
+		minloc = maxposition(node->a, min, 1);
+		if (a->pos == min)
 		{
-			pr_rra(la);
-			if (is_sorted_list(la) == 0)
-				pr_sa(la);
+			pb(node, cmd, 1);
+			count--;
 		}
-		else if (HEADA > NEXTA)
+		else if (minloc >= node->size / 2)
+			rra(node, cmd, 1);
+		else if (minloc < node->size / 2)
+			ra(node, cmd, 1);
+		if (node->supcolour == 1 || node->vis == 1)
+			printout(node, cmd);
+		print_debug(node);
+	}
+}
+
+void		dumbsortbigger(t_hold *node, char *cmd)
+{
+	t_stack *b;
+
+	movesmalltob(node, cmd);
+	small_sort(node, cmd);
+	b = node->b;
+	while (b != NULL)
+	{
+		pa(node, cmd, 1);
+		if (node->supcolour == 1 || node->vis == 1)
+			printout(node, cmd);
+		print_debug(node);
+		if (is_stack_sorted(node) == 1 && list_size(node->b) == 0)
+			break ;
+	}
+}
+
+void		small_sort(t_hold *node, char *cmd)
+{
+	t_stack *a;
+
+	if (is_stack_sorted(node) == 1 && list_size(node->b) == 0)
+		return ;
+	if (list_size(node->a) <= 3)
+	{
+		while (1)
 		{
-			if (HEADA > TAILA)
-				pr_ra(la);
-			if (is_sorted_list(la) == 0)
-				pr_sa(la);
-		}
-		else
-			pr_sa(la);
-	}
-}
-
-void algo_small(int len, t_list *la, t_list *lb)
-{
-	int len2;
-
-	len2 = 0;
-	while (len > 3)
-	{
-		algos_smallest_first(len, la);
-		pr_pb(la, lb);
-		len--;
-		len2++;
-	}
-	algos_len3(la);
-	while (len2 != 0)
-	{
-		pr_pa(la, lb);
-		len2--;
-	}
-}
-
-void algo_medium(int len, t_list *la, t_list *lb)
-{
-	int len2;
-
-	len2 = 0;
-	while (len > 3)
-	{
-		algos_smallest_first(len, la);
-		pr_pb(la, lb);
-		if (is_sorted_list(la))
-			break;
-		len--;
-		len2++;
-	}
-	algos_len3(la);
-	while (len2 != 0)
-	{
-		while (lb->head != NULL)
-			pr_pa(la, lb);
-		len2--;
-	}
-}
-
-void	algo_large(t_list *la, t_list *lb) 
-{
-	int			store;
-
-	while (!is_sorted_list(la) || ft_lst_len(lb) != 0)
-	{
-		print_stacks(la, lb);
-		if (get_first(la) > get_second(la)){
-			pr_sa(la);
-		}
-		else if (get_first(la) > get_last(la))
-			pr_ra(la);
-		else if (get_first(la) < get_last(lb)){
-			pr_pb(la, lb);
-			if (ft_lst_len(lb) > 1){
-				pr_rb(lb);
-			}
-		}
-		else if (get_first(la) < get_first(lb)){
-			store = get_first(la);
-			pr_ra(la);
-			while (get_first(lb) > store)
-				pr_pa(la, lb);
-			pr_rra(la);
-		}
-		else if (is_sorted_list(la) &&
-				get_first(la) > get_first(lb)){
-					move_list_b_to_a(la, lb);
-				}
-		else
-			pr_pb(la, lb);
-	}
-}
-
-void		move_list_b_to_a(t_list *la, t_list *lb)
-{
-	t_node *tmp;
-
-	tmp = lb->head;
-	if (tmp)
-	{
-		while (tmp)
-		{
-			pr_pa(la, lb);
-			tmp = tmp->next;
+			a = node->a;
+			if (is_list_sorted(a, 'a') == 1)
+				break ;
+			if (a->data < a->next->data)
+				rra(node, cmd, 1);
+			if (a->data > a->next->data)
+				sa(node, cmd, 1);
+			if (node->supcolour == 1)
+				printout(node, cmd);
+			print_debug(node);
 		}
 	}
+	else
+		dumbsortbigger(node, cmd);
+	printout(node, cmd);
 }

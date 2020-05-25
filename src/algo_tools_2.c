@@ -12,65 +12,53 @@
 
 #include "../includes/push_swap.h"
 
-int		is_list(t_list *lst)
+// associates location for specific movement of nodes
+int		*setup_move_node(t_hold *node, int totalrange, t_stack *tmp)
 {
-	if (lst != NULL && lst->head != NULL && lst->head->next != NULL)
-		return (1);
-	return (0);
+	int		*sort;
+
+	sort = (int*)ft_memalloc(sizeof(int) * 4);
+	sort[0] = totalrange;
+	sort[1] = maxval(tmp);
+	sort[2] = closestsmaxval(tmp, totalrange, sort[1]);
+	sort[3] = maxposition(node->a, sort[2], totalrange);
+	return (sort);
 }
 
-void	move_up_a(int smallest, int len, int pos, t_list *la)
+void	move_node_body(t_hold *node, char *cmd, int data, int size)
 {
-	int half;
+	if (data >= size / 2)
+		rra(node, cmd, 1);
+	else if (data < size / 2)
+		ra(node, cmd, 1);
+}
 
-	while (HEADA != smallest)
+// decides where current node is moved
+// sort is temp holder for location of splits
+void	move_node(t_hold *node, int totalrange, int size, char *cmd)
+{
+	int		*sort;
+	t_stack	*tmp;
+
+	tmp = node->a;
+	sort = setup_move_node(node, totalrange, tmp);
+	while (sort[0] && tmp != NULL)
 	{
-		if (HEADA != smallest && NEXTA == smallest)
-			pr_sa(la);
-		else
+		if (node->supcolour == 1)
+			printout(node, cmd);
+		if (tmp->data == sort[2])
 		{
-			while (HEADA != smallest)
-			{
-				len = find_list_length(la);
-				half = half_list(len);
-				if (pos > half)
-					pr_rra(la);
-				else if (pos <= half)
-					pr_ra(la);
-				len++;
-			}
+			pb(node, cmd, 1);
+			sort[0]--;
+			tmp = node->a;
+			sort[2] = closestsmaxval(tmp, totalrange, sort[1]);
+			sort[3] = maxposition(node->a, sort[2], totalrange);
 		}
-	}
-}
-
-int		is_smallest_pos(t_list *lst)
-{
-	t_node	*node;
-	int		smallest;
-	int		smallest_pos;
-
-	smallest = is_minimum(lst);
-	node = lst->head;
-	smallest_pos = 0;
-	while (node->data != smallest)
-	{
-		node = node->next;
-		smallest_pos++;
-	}
-	return (smallest_pos);
-}
-
-void	algos_len4(int len, t_list *list_a, t_list *list_b)
-{
-	if (is_rev_list(list_a) == 1)
-	{
-		pr_sa(list_a);
-		pr_rra(list_a);
-		pr_rra(list_a);
-		pr_sa(list_a);
-	}
-	else
-	{
-		algo_small(len, list_a, list_b);
+		else
+			move_node_body(node, cmd, sort[3], size);
+		tmp = node->a;
+		if (node->supcolour == 1 || node->vis == 1)
+			printout(node, cmd);
+		print_debug(node);
 	}
 }

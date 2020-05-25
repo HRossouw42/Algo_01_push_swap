@@ -12,25 +12,21 @@
 
 #include "../includes/push_swap.h"
 
-int		main(int argc, char **argv)
+int		main(int arc, char **arv)
 {
-	t_list	*la;
-	t_list	*lb;
+	t_hold	*node;
+	char	*cmd;
 
-	if (argc > 1)
-	{
-		la = get_args(argc, argv);
-		error_checker(argc, argv, la);
-		lb = ft_lst_new();
-		if (is_sorted(la, lb))
-		{
-			free_lst(la);
-			free_lst(lb);
-			return (0);
-		}
-		else
-			algo_start(la, lb);
-	}
-	else
+	node = prep_memory();
+	cmd = (char*)ft_memalloc(sizeof(char) * 4);
+
+	if (prep_arg(arv, node, arc) == 0)
 		return (0);
+	if (create_stacks(node->raw, node, 0) == 0)
+		return (0);
+	node->size = list_size(node->a);
+	get_max_values(node, node->size);
+	sort(node, cmd);
+
+	return (1);
 }

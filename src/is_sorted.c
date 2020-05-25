@@ -12,42 +12,59 @@
 
 #include "../includes/push_swap.h"
 
-int		is_sorted_list(t_list *lst)
+// check if one list is sorted
+int		is_list_sorted(t_stack *list, char ab)
 {
-	t_node	*node;
+	t_stack	*tmp;
 
-	node = lst->head;
-	if (lst->head->data == lst->tail->data)
-		return (1);
-	while (node->next != NULL)
+	if (ab == 'a')
 	{
-		if (node->data > node->next->data)
-			return (0);
-		node = node->next;
+		tmp = list;
+		while (tmp->next != NULL)
+		{
+			if (tmp->data > tmp->next->data)
+				return (0);
+			tmp = tmp->next;
+		}
+	}
+	if (ab == 'b')
+	{
+		tmp = list;
+		while (tmp->next != NULL)
+		{
+			if (tmp->data < tmp->next->data)
+				return (0);
+			tmp = tmp->next;
+		}
 	}
 	return (1);
 }
 
-int		is_sorted(t_list *la, t_list *lb)
+// check if both lists are sorted
+int		is_stack_sorted(t_hold *node)
 {
-	t_node	*node;
+	t_stack	*tmpa;
+	int		bsize;
+	int		asize;
 
-	node = la->head;
-	if (la->head->data == la->tail->data)
-		if (lb->head == NULL)
-			return (1);
-	while (node->next != NULL)
+	asize = list_size(node->a);
+	bsize = list_size(node->b);
+	tmpa = node->a;
+	if (asize > 0)
 	{
-		if (node->data > node->next->data)
-			return (0);
-		node = node->next;
+		while (tmpa->next != NULL)
+		{
+			if (tmpa->data > tmpa->next->data)
+				return (0);
+			tmpa = tmpa->next;
+		}
 	}
-	if (lb->head != NULL)
-		return (0);
-	else
+	if (bsize == 0)
 		return (1);
+	return (0);
 }
 
+// is list in reverse
 int		is_rev_list(t_list *la)
 {
 	t_node	*current;

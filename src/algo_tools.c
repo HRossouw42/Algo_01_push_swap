@@ -12,69 +12,63 @@
 
 #include "../includes/push_swap.h"
 
-int			find_list_length(t_list *list)
+int		closestsmaxval(t_stack *tmp, int totalrange, int hi)
 {
-	t_node	*node;
-	int		list_len;
+	int		low;
+	t_stack	*a;
 
-	node = list->head;
-	list_len = 0;
-	while (node != NULL)
+	a = tmp;
+	low = hi - totalrange;
+	if (low < 0)
+		low = 0;
+	while (a != NULL)
 	{
-		list_len++;
-		node = node->next;
+		if ((a->pos > low && a->pos <= hi))
+		{
+			return (a->data);
+		}
+		a = a->next;
 	}
-	return (list_len);
+	return (0);
 }
 
-int			half_list(int len)
+int		maxposition(t_stack *lst, int max_val, int totalrange)
 {
-	int		div;
+	int		count;
+	int		lower;
+	t_stack	*a;
 
-	if ((len % 2 == 0) && len != 0)
-		div = len / 2;
-	else
+	count = 0;
+	a = lst;
+	lower = max_val - totalrange;
+	if (lower < 0)
+		lower = 0;
+	while (a != NULL)
 	{
-		len = len + 1;
-		div = len / 2;
+		if ((a->pos > lower && a->pos <= max_val))
+		{
+			return (count);
+		}
+		a = a->next;
+		count++;
 	}
-	return (div);
+	return (count);
 }
 
-void		algos_smallest_first(int len, t_list *la)
+// value of last intiger 
+int		last_int_value(t_stack *lst)
 {
-	int		smallest;
-	int		smallest_pos;
+	t_stack *tmp;
+	int		i;
 
-	smallest = is_minimum(la);
-	smallest_pos = is_smallest_pos(la);
-	move_up_a(smallest, len, smallest_pos, la);
-}
-
-void		is_max(t_list *lst)
-{
-	t_node	*max;
-
-	max = lst->head;
-	while (max->next != NULL)
+	i = 0;
+	tmp = lst;
+	if (tmp == NULL)
+		return (0);
+	while (tmp->next != NULL)
 	{
-		if (max->data < max->next->data)
-			max = max->next;
+		tmp = tmp->next;
 	}
-}
-
-int			is_minimum(t_list *lst)
-{
-	t_node	*node;
-	int		min;
-
-	node = lst->head;
-	min = lst->head->data;
-	while (node != NULL)
-	{
-		if (node->data < min)
-			min = node->data;
-		node = node->next;
-	}
-	return (min);
+	i = tmp->data;
+	return (i);
 }

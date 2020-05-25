@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int createalist(char **str, t_hold *node)
+int create_list(char **str, t_hold *node)
 {
 	int i;
 	int size;
@@ -37,7 +37,7 @@ int createalist(char **str, t_hold *node)
 	return (1);
 }
 
-int doublecheck(t_hold *node, int checker)
+int error_check(t_hold *node, int checker)
 {
 	t_stack *temp;
 	t_stack *list;
@@ -63,13 +63,14 @@ int doublecheck(t_hold *node, int checker)
 	return (1);
 }
 
-int populatestack(char **str, t_hold *node, int checker)
+// populates arguments into a linked list while checking for extra command flags
+int create_stacks(char **str, t_hold *node, int checker)
 {
 	int i;
 	int dx;
 	t_stack *ret;
 
-	createalist(str, node);
+	create_list(str, node);
 	ret = node->a;
 	i = 0;
 	while (str[i])
@@ -83,10 +84,10 @@ int populatestack(char **str, t_hold *node, int checker)
 			ret->data = atoi(str[i]);
 			ret = ret->next;
 			if (ret == NULL)
-				return (doublecheck(node, checker));
+				return (error_check(node, checker));
 		}
 		i++;
 	}
 	ret->next = NULL;
-	return (doublecheck(node, checker));
+	return (error_check(node, checker));
 }

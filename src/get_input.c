@@ -12,60 +12,72 @@
 
 #include "../includes/push_swap.h"
 
-void	ok(void)
+int		stackcmd(char *cmd, t_hold *node)
 {
-	ft_putstr("OK\n");
-	exit(1);
+	int	ret;
+
+	ret = 0;
+	if (ft_strcmp(cmd, "sa") == 0)
+		ret = sa(node, cmd, 0);
+	else if (ft_strcmp(cmd, "ra") == 0)
+		ret = ra(node, cmd, 0);
+	else if (ft_strcmp(cmd, "rra") == 0)
+		ret = rra(node, cmd, 0);
+	else if (ft_strcmp(cmd, "pa") == 0)
+		ret = pa(node, cmd, 0);
+	else if (ft_strcmp(cmd, "sb") == 0)
+		ret = sb(node, cmd, 0);
+	else if (ft_strcmp(cmd, "rb") == 0)
+		ret = rb(node, cmd, 0);
+	else if (ft_strcmp(cmd, "rrb") == 0)
+		ret = rrb(node, cmd, 0);
+	else if (ft_strcmp(cmd, "pb") == 0)
+		ret = pb(node, cmd, 0);
+	else if (ft_strcmp(cmd, "ss") == 0)
+		ret = ss(node, cmd, 0);
+	else if (ft_strcmp(cmd, "rr") == 0)
+		ret = rr(node, cmd, 0);
+	else if (ft_strcmp(cmd, "rrr") == 0)
+		ret = rrr(node, cmd, 0);
+	return (ret);
 }
 
-void	error(void)
+int		commandcheck(char *cmd, t_hold *node)
 {
-	ft_putstr("Error\n");
-	exit(1);
+	int	ret;
+
+	ret = 0;
+	ret = stackcmd(cmd, node);
+	return (ret);
 }
 
-void	ko(void)
+// getsnextline from input, checks if its a command, outputs accordingly
+int		get_input(t_hold *node)
 {
-	ft_putstr("KO\n");
-	exit(1);
-}
-
-void	read_input(const char *str, t_list *la, t_list *lb)
-{
-	if (ft_strcmp(str, "sa") == 0)
-		op_sa(la);
-	else if (ft_strcmp(str, "sb") == 0)
-		op_sb(lb);
-	else if (ft_strcmp(str, "ss") == 0)
-		op_ss(la, lb);
-	else if (ft_strcmp(str, "pa") == 0)
-		op_pa(la, lb);
-	else if (ft_strcmp(str, "pb") == 0)
-		op_pb(la, lb);
-	else if (ft_strcmp(str, "ra") == 0)
-		op_ra(la);
-	else if (ft_strcmp(str, "rb") == 0)
-		op_rb(lb);
-	else if (ft_strcmp(str, "rr") == 0)
-		op_rr(la, lb);
-	else if (ft_strcmp(str, "rra") == 0)
-		op_rra(la);
-	else if (ft_strcmp(str, "rrb") == 0)
-		op_rrb(lb);
-	else if (ft_strcmp(str, "rrr") == 0)
-		op_rrr(la, lb);
-	else
-		error();
-}
-
-void	get_input(t_list *la, t_list *lb)
-{
-	char *str;
-
-	while (ft_get_next_line(0, &str))
+	char	*cmd;
+	char	tmp[4];
+	int		ret;
+	
+	//TODO: Check get next line
+	while ((ret = ft_get_next_line(0, &cmd)) != 0)
 	{
-		read_input(str, la, lb);
-		free(str);
+		if (ret != 0)
+			ft_strcpy(tmp, cmd);
+		if (commandcheck(cmd, node) == 0)
+		{
+			ERROR;
+			exit(1);
+		}
+		print_debug(node);
+		if (node->supcolour == 1 || node->vis == 1)
+			printout(node, cmd);
 	}
-	free(str);
+	printout(node, tmp);
+	if (is_stack_sorted(node) == 1)
+	{
+		OK;
+		exit(1);
+	}
+	KO;
+	return (1);
 }
