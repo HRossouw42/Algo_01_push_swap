@@ -19,6 +19,10 @@ ARG="RANDOM VALUES"; ./push_swap $ARG
 //to check if push_swap sorted everything correctly
 ARG="RANDOM VALUES"; ./push_swap $ARG | ./checker $ARG
 
+//includes a ruby script tester
+ruby push_swaptest.rb ./push_swap_binary "" -> sort 500 numbers
+ruby push_swaptest.rb ./push_swap_binary "100" -> sort 100 numbers
+
 ```
 ## Goal
 "This project will make you sort data on a stack, with a limited set of instructions, using
