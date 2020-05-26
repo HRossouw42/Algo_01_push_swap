@@ -1,5 +1,7 @@
 https://numbergenerator.org/numberlistrandomizer#!numbers=100&lines=1&range=1-100
 
+leaks checker
+
 ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l 
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 
